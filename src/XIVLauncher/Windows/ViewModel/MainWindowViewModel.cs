@@ -703,9 +703,18 @@ namespace XIVLauncher.Windows.ViewModel
                 //    return await this.Launcher.LoginSdo(username, password, otp, isSteam, false, gamePath, true, App.Settings.IsFt.GetValueOrDefault(false)).ConfigureAwait(false);
                 //else
                 //    return await this.Launcher.LoginSdo(username, password, otp, isSteam, enableUidCache, gamePath, false, App.Settings.IsFt.GetValueOrDefault(false)).ConfigureAwait(false);
-                var checkResult = await Launcher.CheckGameUpdate(Area, gamePath, action == AfterLoginAction.Repair);
-                if (checkResult.State == Launcher.LoginState.NeedsPatchGame || action == AfterLoginAction.UpdateOnly)
-                    return checkResult;
+
+                // 仅扫码登录模式 - 跳过服务器检查
+                if (!App.Settings.OnlyQRCodeLogin.GetValueOrDefault(false))
+                {
+                    var checkResult = await Launcher.CheckGameUpdate(Area, gamePath, action == AfterLoginAction.Repair);
+                    if (checkResult.State == Launcher.LoginState.NeedsPatchGame || action == AfterLoginAction.UpdateOnly)
+                        return checkResult;
+                }
+                else
+                {
+                    Log.Information("[仅扫码登录] 已跳过服务器更新检查");
+                }
 
                 if (type == LoginType.AutoLoginSession)
                 {

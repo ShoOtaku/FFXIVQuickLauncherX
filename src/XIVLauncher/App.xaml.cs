@@ -178,6 +178,53 @@ namespace XIVLauncher
             {
                 Log.Error(ex, "Could not apply settings overrides from command line");
             }
+
+            // 初始化机器码伪装配置
+            try
+            {
+                SdoUtils.EnableSpoof = Settings.EnableDeviceIdSpoof.GetValueOrDefault(false);
+                SdoUtils.SpoofedMacAddress = Settings.SpoofedMacAddress;
+                SdoUtils.SpoofedCpuId = Settings.SpoofedCpuId;
+                SdoUtils.SpoofedDiskSerial = Settings.SpoofedDiskSerial;
+
+                if (SdoUtils.EnableSpoof)
+                {
+                    Log.Information("[机器码伪装] 已启用机器码伪装");
+                    Log.Information("[机器码伪装] MAC: {Mac}", SdoUtils.SpoofedMacAddress ?? "未设置");
+                    Log.Information("[机器码伪装] CPU: {Cpu}", SdoUtils.SpoofedCpuId ?? "未设置");
+                    Log.Information("[机器码伪装] Disk: {Disk}", SdoUtils.SpoofedDiskSerial ?? "未设置");
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Could not initialize device ID spoofing");
+            }
+
+            // 初始化代理配置
+            try
+            {
+                ProxySettings.EnableProxy = Settings.EnableProxy.GetValueOrDefault(false);
+                ProxySettings.ProxyType = Settings.ProxyType ?? "SOCKS5";
+                ProxySettings.ProxyServer = Settings.ProxyServer ?? string.Empty;
+                ProxySettings.ProxyPort = Settings.ProxyPort.GetValueOrDefault(1080);
+                ProxySettings.ProxyUsername = Settings.ProxyUsername ?? string.Empty;
+                ProxySettings.ProxyPassword = Settings.ProxyPassword ?? string.Empty;
+
+                if (ProxySettings.EnableProxy)
+                {
+                    Log.Information("[代理] 已启用代理");
+                    Log.Information("[代理] 代理信息: {ProxyInfo}", ProxySettings.GetProxyInfo());
+                    ProxySettings.ApplySystemProxy();
+                }
+                else
+                {
+                    Log.Information("[代理] 未启用代理");
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Could not initialize proxy settings");
+            }
         }
 
         private void OnUpdateCheckFinished(bool finishUp)
@@ -299,7 +346,8 @@ namespace XIVLauncher
             });
         }
 
-        private static string GetConfigPath(string prefix) => Path.Combine(Paths.RoamingPath, $"{prefix}ConfigV3.json");
+        // 配置文件保存在 exe 所在目录,不影响 AppData 下的正常配置
+        private static string GetConfigPath(string prefix) => Path.Combine(AppContext.BaseDirectory, $"{prefix}ConfigV3.json");
 
         private void App_OnStartup(object sender, StartupEventArgs e)
         {

@@ -13,13 +13,46 @@ using System.Management;
 
 namespace XIVLauncher.Common
 {
-    internal class SdoUtils
+    public class SdoUtils
     {
         private static Lazy<string> deviceId = new(() => string.Join(":", GetMacAddress(), GetCPUId(), GetDiskSerialNumber()));
 
+        // 机器码伪装配置
+        public static bool EnableSpoof { get; set; } = false;
+        public static string SpoofedMacAddress { get; set; }
+        public static string SpoofedCpuId { get; set; }
+        public static string SpoofedDiskSerial { get; set; }
+
         public static string GetDeviceId()
         {
+            if (EnableSpoof && !string.IsNullOrEmpty(SpoofedMacAddress) &&
+                !string.IsNullOrEmpty(SpoofedCpuId) && !string.IsNullOrEmpty(SpoofedDiskSerial))
+            {
+                Log.Information("[机器码伪装] 使用伪装的机器码");
+                return string.Join(":", SpoofedMacAddress, SpoofedCpuId, SpoofedDiskSerial);
+            }
             return deviceId.Value;
+        }
+
+        /// <summary>
+        /// 生成随机的伪装机器码（MD5格式）
+        /// </summary>
+        public static (string mac, string cpu, string disk) GenerateRandomDeviceId()
+        {
+            var random = new Random();
+            var buffer = new byte[16];
+
+            random.NextBytes(buffer);
+            var mac = BitConverter.ToString(MD5.Create().ComputeHash(buffer)).Replace("-", string.Empty).ToUpper();
+
+            random.NextBytes(buffer);
+            var cpu = BitConverter.ToString(MD5.Create().ComputeHash(buffer)).Replace("-", string.Empty).ToUpper();
+
+            random.NextBytes(buffer);
+            var disk = BitConverter.ToString(MD5.Create().ComputeHash(buffer)).Replace("-", string.Empty).ToUpper();
+
+            Log.Information("[机器码伪装] 生成随机机器码: {Mac}:{Cpu}:{Disk}", mac, cpu, disk);
+            return (mac, cpu, disk);
         }
 
         public static string GetMD5(byte[] payload)
@@ -29,7 +62,7 @@ namespace XIVLauncher.Common
             return BitConverter.ToString(md5Bytes).Replace("-", string.Empty).ToUpper();
         }
 
-        private static string GetCPUId()
+        public static string GetCPUId()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
@@ -75,6 +108,12 @@ namespace XIVLauncher.Common
 
         public static string GetMacAddress()
         {
+            // 如果启用伪装，返回伪装的 MAC 地址 MD5
+            if (EnableSpoof && !string.IsNullOrEmpty(SpoofedMacAddress))
+            {
+                return SpoofedMacAddress;
+            }
+
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
                 var macId = new DeviceIdBuilder().OnLinux(linux => linux.AddMachineId()).ToString();
@@ -102,6 +141,19 @@ namespace XIVLauncher.Common
 
         public static string GetMac()
         {
+            // 如果启用伪装，从 MD5 生成一个假的 MAC 地址格式
+            if (EnableSpoof && !string.IsNullOrEmpty(SpoofedMacAddress))
+            {
+                // 从 MD5 哈希生成 XX-XX-XX-XX-XX-XX 格式的 MAC 地址
+                var md5 = SpoofedMacAddress;
+                if (md5.Length >= 12)
+                {
+                    var fakeMac = $"{md5.Substring(0, 2)}-{md5.Substring(2, 2)}-{md5.Substring(4, 2)}-{md5.Substring(6, 2)}-{md5.Substring(8, 2)}-{md5.Substring(10, 2)}";
+                    Log.Debug("[机器码伪装] 使用伪装 MAC: {FakeMac}", fakeMac);
+                    return fakeMac;
+                }
+            }
+
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
                 return new DeviceIdBuilder().OnLinux(linux => linux.AddMachineId()).ToString();
@@ -124,7 +176,7 @@ namespace XIVLauncher.Common
             return result;
         }
 
-        private static string GetDiskSerialNumber()
+        public static string GetDiskSerialNumber()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {

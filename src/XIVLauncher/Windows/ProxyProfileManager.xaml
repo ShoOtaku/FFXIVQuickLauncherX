@@ -1,0 +1,73 @@
+<Window x:Class="XIVLauncher.Windows.ProxyProfileManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="代理配置管理" Height="600" Width="900" WindowStartupLocation="CenterScreen"
+        Icon="pack://application:,,,/Resources/dalamud_icon.ico" ResizeMode="CanResize"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 顶部工具栏 -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,10,10,5">
+            <Button Content="新建配置" Click="AddButton_Click" Margin="0,0,5,0"
+                    Style="{DynamicResource MaterialDesignFlatButton}"/>
+            <Button Content="删除选中" Click="DeleteButton_Click" Margin="0,0,5,0"
+                    Style="{DynamicResource MaterialDesignFlatButton}"/>
+            <Button Content="测试选中" Click="TestSelectedButton_Click" Margin="0,0,5,0"
+                    Style="{DynamicResource MaterialDesignFlatButton}"/>
+        </StackPanel>
+
+        <!-- 表格 -->
+        <DataGrid x:Name="ProfileDataGrid"
+                  Grid.Row="1"
+                  Margin="10,5,10,5"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  SelectionMode="Single"
+                  HeadersVisibility="Column"
+                  GridLinesVisibility="All"
+                  BorderBrush="LightGray"
+                  BorderThickness="1"
+                  CellEditEnding="ProfileDataGrid_CellEditEnding">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="配置名称" Binding="{Binding Name}" Width="120"/>
+                <DataGridTextColumn Header="类型" Binding="{Binding Type}" Width="80"/>
+                <DataGridTextColumn Header="服务器" Binding="{Binding Server}" Width="150"/>
+                <DataGridTextColumn Header="端口" Binding="{Binding Port}" Width="60"/>
+                <DataGridTextColumn Header="用户名" Binding="{Binding Username}" Width="100"/>
+                <DataGridTextColumn Header="密码" Binding="{Binding Password}" Width="100"/>
+                <DataGridTextColumn Header="备注" Binding="{Binding Remark}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- 测试结果提示 -->
+        <TextBlock x:Name="TestResultTextBlock"
+                   Grid.Row="1"
+                   Text=""
+                   Foreground="Green"
+                   Margin="10,0,10,10"
+                   FontSize="11"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left"
+                   TextWrapping="Wrap"
+                   Visibility="Collapsed"/>
+
+        <!-- 底部按钮 -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="保存所有修改" Click="SaveButton_Click" Margin="0,0,5,0"
+                    Style="{DynamicResource MaterialDesignFlatButton}"/>
+            <Button Content="关闭" Click="CloseButton_Click"
+                    Style="{DynamicResource MaterialDesignFlatButton}"/>
+        </StackPanel>
+    </Grid>
+</Window>

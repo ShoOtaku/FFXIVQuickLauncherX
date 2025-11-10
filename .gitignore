@@ -289,3 +289,8 @@ src/Update.exe
 
 # XLCore build directory
 src/XIVLauncher.Core/build
+
+# Documentation files - ignore all markdown files except README.md and RELEASE.md
+*.md
+!README.md
+!RELEASE.md

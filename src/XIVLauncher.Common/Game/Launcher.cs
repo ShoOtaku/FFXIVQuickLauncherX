@@ -75,11 +75,27 @@ public partial class Launcher
             CookieContainer = loginCookies,
             SslOptions = sslOptions,
         };
-        var loginHandler = new SocketsHttpHandler
+
+        // 应用代理设置 - 仅对 SDO 登录请求(loginClient)使用代理
+        var proxy = ProxySettings.GetWebProxy();
+        if (proxy != null)
         {
-            UseCookies = false,
-            SslOptions = sslOptions,
-        };
+            loginHandler.Proxy = proxy;
+            loginHandler.UseProxy = true;
+            Log.Information("[代理] 已应用代理设置到 SDO 登录 HttpClient (仅 loginClient)");
+        }
+
+        this.client = new HttpClient(handler);
+        this.loginClient = new HttpClient(loginHandler);
+
+        // 如果使用代理，为 loginClient 增加超时时间
+        if (proxy != null)
+        {
+            this.loginClient.Timeout = TimeSpan.FromMinutes(3);
+            Log.Information("[代理] 已将 loginClient 超时时间设置为 3 分钟");
+        }
+
+        return; // 跳过后面的 Windows 部分
 #else
         var handler = new HttpClientHandler
         {
@@ -93,8 +109,24 @@ public partial class Launcher
         };
 #endif
 
+        // 应用代理设置 - 仅对 SDO 登录请求(loginClient)使用代理
+        var proxy = ProxySettings.GetWebProxy();
+        if (proxy != null)
+        {
+            loginHandler.Proxy = proxy;
+            loginHandler.UseProxy = true;
+            Log.Information("[代理] 已应用代理设置到 SDO 登录 HttpClient (仅 loginClient)");
+        }
+
         this.client = new HttpClient(handler);
         this.loginClient = new HttpClient(loginHandler);
+
+        // 如果使用代理，为 loginClient 增加超时时间
+        if (proxy != null)
+        {
+            this.loginClient.Timeout = TimeSpan.FromMinutes(3);
+            Log.Information("[代理] 已将 loginClient 超时时间设置为 3 分钟");
+        }
     }
 
     public Launcher(byte[] overriddenSteamTicket, IUniqueIdCache uniqueIdCache, ISettings settings, string frontierUrl)

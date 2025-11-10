@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet build:*)",
+      "Bash(where:*)",
+      "Read(//c/Program Files/Microsoft Visual Studio/2022/**)",
+      "Bash('C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe' src/XIVLauncher.sln /t:Build /p:Configuration=Debug /v:minimal)",
+      "Bash('C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe' srcXIVLauncher.sln //t:Build //p:Configuration=Debug //v:minimal)",
+      "Bash('C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe' srcXIVLauncher.sln /t:Build /p:Configuration=Debug /v:minimal)",
+      "Bash('C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe' XIVLauncher.sln /t:Build /p:Configuration=Debug /v:minimal)",
+      "Bash(cmd.exe /c:*)",
+      "Bash(\"C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe\" src/XIVLauncher.sln '-/t:Build' '-/p:Configuration=Debug' '-/v:minimal')",
+      "Bash('C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe' src/XIVLauncher.sln '-/t:Build' '-/p:Configuration=Debug' '-/v:minimal')",
+      "Bash('C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe' \"src\\XIVLauncher.sln\" //t:Build //p:Configuration=Debug //v:minimal)",
+      "Bash(cat:*)",
+      "Bash(tail:*)",
+      "Bash(ls:*)",
+      "Bash(head:*)",
+      "Bash(curl:*)",
+      "Bash(tasklist:*)",
+      "Read(//c/Users/Errer/AppData/Roaming/XIVLauncherCN/**)",
+      "Bash(time curl -x http://tuam1762589681:tuami2@101.91.207.91:4848 -I \"https://api.github.com/repos/AtmoOmen/Dalamud/releases/latest\" --connect-timeout 30 --max-time 60)",
+      "Bash(taskkill:*)",
+      "Bash(./XIVLauncherCN.exe)",
+      "Bash(rd /s /q \"C:\\Users\\Errer\\AppData\\Roaming\\XIVLauncherCN\\addon\\Hooks\\25-11-05-01\")",
+      "Bash(start XIVLauncherCN.exe)",
+      "Bash('C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe' \"src\\XIVLauncher.sln\" /t:Build /p:Configuration=Debug /v:minimal)",
+      "Bash(timeout /t 10 /nobreak)",
+      "Bash(\"C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe\" c:/Users/Errer/source/repos/FFXIVQuickLauncherX/src/XIVLauncher.sln -t:Build -p:Configuration=Debug -v:minimal)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:XIVLauncher.Windows.ViewModel"
         mc:Ignorable="d"
-        Title="{Binding AdvancedSettingsTitleLoc}" SizeToContent="Height" Width="450" WindowStartupLocation="CenterScreen"
+        Title="{Binding AdvancedSettingsTitleLoc}" Height="550" Width="500" WindowStartupLocation="CenterScreen"
         Icon="pack://application:,,,/Resources/dalamud_icon.ico" ResizeMode="NoResize"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
         d:DataContext="{d:DesignInstance viewModel:AdvancedSettingsViewModel}">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10, 0, 0, 50">
-            <StackPanel Orientation="Horizontal">
+        <TabControl Margin="10,10,10,50" BorderThickness="0">
+            <!-- 常规设置标签 -->
+            <TabItem Header="常规设置" Foreground="DarkGray">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+                    <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed">
                 <CheckBox x:Name="UidCacheCheckBox"
                           Visibility="Hidden"
                           Content="{Binding EnabledUidCacheLoc}"
@@ -52,8 +56,142 @@
             <CheckBox x:Name="EnableSkipUpdate"
                       Content="允许跳过启动器更新"
                       HorizontalAlignment="Left" Margin="0,0,0,7" Foreground="DarkGray" />
-        </StackPanel>
-        
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 机器码标签 -->
+            <TabItem Header="机器码" Foreground="DarkGray">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+                    <StackPanel Margin="10">
+            <StackPanel Margin="20,0,10,10">
+                <TextBlock Text="当前将上传到 SDO 服务器的机器码:" Foreground="DarkGray" Margin="0,0,0,5" FontSize="11" />
+                <TextBox x:Name="CurrentDeviceIdTextBox"
+                         IsReadOnly="True"
+                         Background="#F5F5F5"
+                         Foreground="Black"
+                         TextWrapping="Wrap"
+                         Margin="0,0,0,5" />
+                <Button Content="刷新当前机器码"
+                        Style="{DynamicResource MaterialDesignFlatButton}"
+                        Click="RefreshCurrentDeviceIdButton_OnClick"
+                        HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <Separator Margin="0,15,0,15" />
+            <TextBlock Text="机器码伪装设置" FontWeight="Bold" Foreground="DarkGray" Margin="0,0,0,10" FontSize="12" />
+            <CheckBox x:Name="EnableDeviceIdSpoofCheckbox"
+                      Content="启用机器码伪装"
+                      HorizontalAlignment="Left" Margin="0,0,0,7" Foreground="DarkGray"
+                      Checked="EnableDeviceIdSpoofCheckbox_OnChecked"
+                      Unchecked="EnableDeviceIdSpoofCheckbox_OnUnchecked" />
+
+            <StackPanel x:Name="DeviceIdSpoofPanel" IsEnabled="False" Margin="20,0,10,0">
+                <!-- 快速选择配置 -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="快速选择配置:" VerticalAlignment="Center" Foreground="DarkGray"/>
+                    <ComboBox x:Name="DeviceIdProfileComboBox"
+                              Width="200"
+                              Margin="5,0,5,0"
+                              SelectionChanged="DeviceIdProfileComboBox_SelectionChanged"/>
+                    <Button Content="管理配置"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            Click="ManageDeviceIdProfilesButton_Click"/>
+                </StackPanel>
+
+                <Separator Margin="0,0,0,10" />
+                <TextBlock Text="MAC 地址哈希 (MD5):" Foreground="DarkGray" Margin="0,5,0,2" FontSize="11" />
+                <TextBox x:Name="SpoofedMacAddressTextBox" Margin="0,0,0,5" />
+
+                <TextBlock Text="CPU ID 哈希 (MD5):" Foreground="DarkGray" Margin="0,5,0,2" FontSize="11" />
+                <TextBox x:Name="SpoofedCpuIdTextBox" Margin="0,0,0,5" />
+
+                <TextBlock Text="磁盘序列号哈希 (MD5):" Foreground="DarkGray" Margin="0,5,0,2" FontSize="11" />
+                <TextBox x:Name="SpoofedDiskSerialTextBox" Margin="0,0,0,5" />
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                    <Button Content="生成随机机器码"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            Click="GenerateRandomDeviceIdButton_OnClick" />
+                    <Button Content="显示当前真实机器码"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            Click="ShowRealDeviceIdButton_OnClick" />
+                </StackPanel>
+            </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- 代理设置标签 -->
+            <TabItem Header="代理设置" Foreground="DarkGray">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+                    <StackPanel Margin="10">
+            <CheckBox x:Name="EnableProxyCheckbox"
+                      Content="启用代理"
+                      HorizontalAlignment="Left" Margin="0,0,0,7" Foreground="DarkGray"
+                      Checked="EnableProxyCheckbox_OnChecked"
+                      Unchecked="EnableProxyCheckbox_OnUnchecked" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="快速选择配置:" VerticalAlignment="Center" Foreground="DarkGray" Margin="0,0,10,0" FontSize="11"/>
+                <ComboBox x:Name="ProxyProfileComboBox"
+                          Width="200"
+                          SelectionChanged="ProxyProfileComboBox_SelectionChanged"/>
+                <Button Content="管理配置"
+                        Style="{DynamicResource MaterialDesignFlatButton}"
+                        Click="ManageProxyProfilesButton_Click"
+                        Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel x:Name="ProxySettingsPanel" IsEnabled="False" Margin="20,0,10,10">
+                <TextBlock Text="代理类型:" Foreground="DarkGray" Margin="0,5,0,2" FontSize="11" />
+                <ComboBox x:Name="ProxyTypeComboBox" Margin="0,0,0,5">
+                    <ComboBoxItem Content="SOCKS5" IsSelected="True" />
+                    <ComboBoxItem Content="HTTP" />
+                </ComboBox>
+
+                <TextBlock Text="代理服务器:" Foreground="DarkGray" Margin="0,5,0,2" FontSize="11" />
+                <TextBox x:Name="ProxyServerTextBox" Margin="0,0,0,5" />
+
+                <TextBlock Text="端口:" Foreground="DarkGray" Margin="0,5,0,2" FontSize="11" />
+                <TextBox x:Name="ProxyPortTextBox" Text="1080" Margin="0,0,0,5" />
+
+                <TextBlock Text="用户名 (可选):" Foreground="DarkGray" Margin="0,5,0,2" FontSize="11" />
+                <TextBox x:Name="ProxyUsernameTextBox" Margin="0,0,0,5" />
+
+                <TextBlock Text="密码 (可选):" Foreground="DarkGray" Margin="0,5,0,2" FontSize="11" />
+                <PasswordBox x:Name="ProxyPasswordBox" Margin="0,0,0,5" />
+
+                <TextBlock Text="说明: HTTP/HTTPS 代理可直接使用，SOCKS5 需要系统或第三方工具支持"
+                           Foreground="DarkGray" Margin="0,5,0,5" FontSize="10" TextWrapping="Wrap" />
+
+                <Button x:Name="TestProxyButton"
+                        Content="测试代理连接"
+                        Style="{DynamicResource MaterialDesignFlatButton}"
+                        Click="TestProxyButton_OnClick"
+                        HorizontalAlignment="Left"
+                        Margin="0,10,0,0" />
+
+                <TextBlock x:Name="ProxyTestResultTextBlock"
+                           Text=""
+                           Foreground="Green"
+                           Margin="0,5,0,5"
+                           FontSize="11"
+                           TextWrapping="Wrap"
+                           Visibility="Collapsed" />
+            </StackPanel>
+
+            <Separator Margin="0,15,0,15" />
+            <TextBlock Text="登录设置" FontWeight="Bold" Foreground="DarkGray" Margin="0,0,0,10" FontSize="12" />
+            <CheckBox x:Name="OnlyQRCodeLoginCheckbox"
+                      Content="仅扫码登录模式"
+                      HorizontalAlignment="Left" Margin="0,0,0,7" Foreground="DarkGray"
+                      ToolTip="跳过服务器检查,只访问扫码登录服务器,适合使用代理时加快登录速度" />
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+
         <Button Content="{Binding CloseLoc}" Width="79" VerticalAlignment="Bottom"
                 HorizontalAlignment="Right" Margin="0,0,10,10" Click="CloseButton_OnClick" />
     </Grid>

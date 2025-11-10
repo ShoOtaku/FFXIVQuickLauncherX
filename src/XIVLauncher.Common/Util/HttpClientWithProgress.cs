@@ -27,8 +27,11 @@ public class HttpClientDownloadWithProgress : IDisposable
     {
         timeout ??= TimeSpan.FromMinutes(10);
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-        
-        this.httpClient = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip }) { Timeout = timeout.Value };
+
+        // 不使用代理,直接访问 GitHub 等资源
+        var handler = new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip };
+
+        this.httpClient = new HttpClient(handler) { Timeout = timeout.Value };
         this.httpClient.DefaultRequestHeaders.Add("User-Agent", PlatformHelpers.GetVersion());
         this.httpClient.DefaultRequestHeaders.Add("accept-encoding", "gzip, deflate, br");
         

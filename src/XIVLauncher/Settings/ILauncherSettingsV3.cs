@@ -59,7 +59,46 @@ namespace XIVLauncher.Settings
         CredType? CredType { get; set; }
         bool? EnableSkipUpdate { get; set; }
         bool? EnableVerboseLog { get; set; }
-        
+
+        // 机器码伪装设置
+        bool? EnableDeviceIdSpoof { get; set; }
+        string SpoofedMacAddress { get; set; }
+        string SpoofedCpuId { get; set; }
+        string SpoofedDiskSerial { get; set; }
+
+        // 代理设置
+        bool? EnableProxy { get; set; }
+        string ProxyType { get; set; }  // SOCKS5, HTTP, SOCKS4
+        string ProxyServer { get; set; }  // IP 或域名
+        int? ProxyPort { get; set; }
+        string ProxyUsername { get; set; }
+        string ProxyPassword { get; set; }
+
+        /// <summary>
+        /// 仅扫码登录模式 - 跳过服务器检查,只访问扫码登录相关服务器
+        /// </summary>
+        bool? OnlyQRCodeLogin { get; set; }
+
+        /// <summary>
+        /// 代理配置列表 (JSON序列化的ProxyProfile列表)
+        /// </summary>
+        string ProxyProfiles { get; set; }
+
+        /// <summary>
+        /// 当前选中的代理配置名称
+        /// </summary>
+        string SelectedProxyProfile { get; set; }
+
+        /// <summary>
+        /// 机器码配置列表 (JSON序列化的DeviceIdProfile列表)
+        /// </summary>
+        string DeviceIdProfiles { get; set; }
+
+        /// <summary>
+        /// 当前选中的机器码配置名称
+        /// </summary>
+        string SelectedDeviceIdProfile { get; set; }
+
         #endregion
     }
 }

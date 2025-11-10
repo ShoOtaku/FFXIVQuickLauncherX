@@ -302,7 +302,9 @@ public class DalamudUpdater
     
     public async Task GetDalamudVersionInfoAsync()
     {
-        using var httpClient = new HttpClient();
+        // Dalamud 更新不使用代理,直接访问 GitHub
+        var handler = new HttpClientHandler();
+        using var httpClient = new HttpClient(handler);
         httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("XIVLauncherCN");
 
         try
@@ -359,9 +361,24 @@ public class DalamudUpdater
         if (addonPath.Exists) addonPath.Delete(true);
         addonPath.Create();
 
-        using var httpClient = new HttpClient();
+        var handler = new HttpClientHandler();
+        var proxy = ProxySettings.GetWebProxy();
+        if (proxy != null)
+        {
+            handler.Proxy = proxy;
+            handler.UseProxy = true;
+            handler.PreAuthenticate = true; // 预认证,避免多次握手
+        }
+
+        using var httpClient = new HttpClient(handler);
+        // 如果使用代理,设置更长的超时时间 (3分钟)
+        if (proxy != null)
+        {
+            httpClient.Timeout = TimeSpan.FromMinutes(3);
+            Log.Information("[代理] [DUPDATE] DownloadDalamud 已将 HttpClient 超时时间设置为 3 分钟");
+        }
         httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("XIVLauncherCN");
-        if (!string.IsNullOrWhiteSpace(this.githubToken)) 
+        if (!string.IsNullOrWhiteSpace(this.githubToken))
             httpClient.DefaultRequestHeaders.Authorization = new("Bearer", this.githubToken);
 
         try
@@ -640,7 +657,15 @@ public class DalamudUpdater
 
             try
             {
-                using var client = new HttpClient();
+                var handler = new HttpClientHandler();
+                var proxy = ProxySettings.GetWebProxy();
+                if (proxy != null)
+                {
+                    handler.Proxy = proxy;
+                    handler.UseProxy = true;
+                }
+
+                using var client = new HttpClient(handler);
                 client.Timeout = TimeSpan.FromSeconds(3);
 
                 stopwatch.Start();
