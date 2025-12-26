@@ -413,6 +413,10 @@ namespace XIVLauncher.Windows
             {
                 Process.Start(new ProcessStartInfo(item.Url) { UseShellExecute = true });
             }
+            else if (!string.IsNullOrEmpty(item.Id))
+            {
+                Process.Start(new ProcessStartInfo($"https://ff.web.sdo.com/web8/index.html#/newstab/newscont/{item.Id}") { UseShellExecute = true });
+            }
             //else
             //{
             //    string url;
@@ -510,7 +514,7 @@ namespace XIVLauncher.Windows
                 if (hasBootPatch)
                 {
                     CustomMessageBox.Show(Loc.Localize("MaintenanceQueueBootPatch",
-                        "A patch for the official launcher was detected.\nThis usually means that there is a patch for the game as well.\n\nYou will now be logged in."), "XIVLauncherCN", parentWindow: this);
+                        "A patch for the official launcher was detected.\nThis usually means that there is a patch for the game as well.\n\nYou will now be logged in."), "XIVLauncherCN (Soil)", parentWindow: this);
                 }
 
                 Dispatcher.Invoke(() =>

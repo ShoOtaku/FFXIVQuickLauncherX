@@ -13,6 +13,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Serilog;
+using XIVLauncher.Common.Http;
 using XIVLauncher.Common.PlatformAbstractions;
 using XIVLauncher.Common.Util;
 
@@ -38,14 +39,15 @@ public class DalamudUpdater
     public static string                  OnlineHash          { get; private set; } = string.Empty;
     public static string                  Version             { get; private set; } = string.Empty;
 
-    public const string RuntimeVersion = "9.0.3";
-
+    public static string RuntimeVersion = string.Empty;
+    
     public FileInfo Runner
     {
         get => this.RunnerOverride ?? this.runnerInternal;
         private set => this.runnerInternal = value;
     }
     private FileInfo runnerInternal;
+    private readonly HttpClient httpClient;
 
     public enum DownloadState
     {
@@ -62,6 +64,20 @@ public class DalamudUpdater
         this.assetDirectory = assetDirectory;
         this.cache          = cache;
         this.githubToken    = githubToken;
+        this.httpClient = new HttpClient(new SocketsHttpHandler()
+        {
+            UseProxy = true,
+            ConnectTimeout = TimeSpan.FromSeconds(10),
+            MaxConnectionsPerServer = 50,
+            EnableMultipleHttp2Connections = true,
+            PooledConnectionLifetime = TimeSpan.FromMinutes(1),
+            Expect100ContinueTimeout = TimeSpan.Zero,
+            AutomaticDecompression = DecompressionMethods.All,
+            ConnectCallback = HappyEyeballsCallback.ConnectCallback
+        });
+        this.httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("XIVLauncherCN");
+        if (!string.IsNullOrWhiteSpace(this.githubToken)) 
+            httpClient.DefaultRequestHeaders.Authorization = new("Bearer", this.githubToken);
     }
 
     public void Run(bool overrideForceProxy = false)
@@ -216,8 +232,7 @@ public class DalamudUpdater
             return;
         }
 
-        Log.Information("[DUPDATE] 需要更新 .NET 运行时: 本地={LocalVer}, 目标={RemoteVer}",
-                        localVersion, RuntimeVersion);
+        Log.Information("[DUPDATE] 需要更新 .NET 运行时: 本地={LocalVer}, 目标={RemoteVer}", localVersion, RuntimeVersion);
         this.SetOverlayProgress(IDalamudLoadingOverlay.DalamudUpdateStep.Runtime);
 
         try
@@ -302,15 +317,26 @@ public class DalamudUpdater
     
     public async Task GetDalamudVersionInfoAsync()
     {
+<<<<<<< HEAD
         // Dalamud 更新不使用代理,直接访问 GitHub
         var handler = new HttpClientHandler();
         using var httpClient = new HttpClient(handler);
         httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("XIVLauncherCN");
 
+=======
+>>>>>>> 15c6b43a6543dc5fbe54fe3a44199b8cf9eeb6b3
         try
         {
+            var runtimeResponse = await httpClient.GetAsync(
+                                      "https://gh.atmoomen.top/raw.githubusercontent.com/Dalamud-DailyRoutines/XLCNSoilAssets/refs/heads/master/runtimeInfo");
+            runtimeResponse.EnsureSuccessStatusCode();
+            RuntimeVersion = await runtimeResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+            RuntimeVersion = RuntimeVersion.Trim().Trim('\n');
+            
+            Log.Information("[DUPDATE] 获取到远端 Dalamud 运行时版本: {0}", RuntimeVersion);
+            
             var response = await httpClient.GetAsync(
-                               "https://raw.githubusercontent.com/Dalamud-DailyRoutines/ghapi-json-generator/output/v2/repos/AtmoOmen/Dalamud/releases/latest/data.json");
+                               "https://gh.atmoomen.top/raw.githubusercontent.com/Dalamud-DailyRoutines/ghapi-json-generator/output/v2/repos/AtmoOmen/Dalamud/releases/latest/data.json");
             response.EnsureSuccessStatusCode();
 
             var       json    = await response.Content.ReadAsStringAsync();
@@ -356,11 +382,12 @@ public class DalamudUpdater
 
     private async Task DownloadDalamud(DirectoryInfo addonPath)
     {
-        const string REPO_API = "https://api.github.com/repos/AtmoOmen/Dalamud/releases/latest";
+        const string REPO_API = "https://gh.atmoomen.top/https://raw.githubusercontent.com/Dalamud-DailyRoutines/ghapi-json-generator/output/v2/repos/AtmoOmen/Dalamud/releases/latest/data.json";
 
         if (addonPath.Exists) addonPath.Delete(true);
         addonPath.Create();
 
+<<<<<<< HEAD
         var handler = new HttpClientHandler();
         var proxy = ProxySettings.GetWebProxy();
         if (proxy != null)
@@ -381,6 +408,8 @@ public class DalamudUpdater
         if (!string.IsNullOrWhiteSpace(this.githubToken))
             httpClient.DefaultRequestHeaders.Authorization = new("Bearer", this.githubToken);
 
+=======
+>>>>>>> 15c6b43a6543dc5fbe54fe3a44199b8cf9eeb6b3
         try
         {
             var response = await httpClient.GetAsync(REPO_API);
@@ -400,7 +429,7 @@ public class DalamudUpdater
                 if (fileName != "latest.7z") continue;
                 
                 await this.DownloadFile($"{downloadUrl}", downloadPath, this.defaultTimeout).ConfigureAwait(false);
-                PlatformHelpers.Un7za(downloadPath, addonPath.FullName);
+                PlatformHelpers.Unzip7ZAsset(downloadPath, addonPath.FullName);
                 File.Delete(downloadPath);
                 break;
             }

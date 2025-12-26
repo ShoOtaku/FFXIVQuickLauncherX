@@ -92,7 +92,7 @@ namespace XIVLauncher.Common.Game
             };
         }
 
-        public async Task<LoginResult> LoginBySdoStatic(string account, string password, DcTraveler dcTraveler)
+        public async Task<LoginResult> LoginBySdoStatic(string account, string password, DcTraveler dcTraveler, RisingstoneCheckIn risingstoneCheckIn)
         {
             var guid = await this.GetGuid();
             var macAddress = SdoUtils.GetMacAddress();
@@ -122,6 +122,11 @@ namespace XIVLauncher.Common.Game
                 dcTraveler.RefreshDcTravelSessionIdFunc = () => this.GetDcTravelSessionId(tgt, guid);
                 dcTraveler.RefreshGameSessionByGuidFunc = () => this.GetSessionId(tgt, guid);
             }
+            
+            if (risingstoneCheckIn != null)
+            {
+                risingstoneCheckIn.RefreshRisingstoneCookieFunc = () => this.GetRisingstoneCookieAsync(tgt, guid);
+            }
 
             var sessionId = await GetSessionId(tgt, guid);
 
@@ -143,7 +148,7 @@ namespace XIVLauncher.Common.Game
             };
         }
 
-        public async Task<LoginResult> LoginByWeGameToken(string account, string token, bool autoLogin, DcTraveler dcTraveler)
+        public async Task<LoginResult> LoginByWeGameToken(string account, string token, bool autoLogin, DcTraveler dcTraveler, RisingstoneCheckIn risingstoneCheckIn)
         {
             var guid = await this.GetGuid();
             var (sndaId, tgt, autoLoginSessionKey) = await ThirdPartyLogin(account, token, autoLogin, AutoLoginKeepDays);
@@ -152,6 +157,11 @@ namespace XIVLauncher.Common.Game
                 dcTraveler.RefreshDcTravelSessionIdFunc = () => this.GetDcTravelSessionId(tgt, guid);
                 dcTraveler.RefreshGameSessionByGuidFunc = () => this.GetSessionId(tgt, guid);
             }
+            if (risingstoneCheckIn != null)
+            {
+                risingstoneCheckIn.RefreshRisingstoneCookieFunc = () => this.GetRisingstoneCookieAsync(tgt, guid);
+            }
+            
             var sessionId = await GetSessionId(tgt, guid);
 
             var oath = new OauthLoginResult
@@ -171,7 +181,7 @@ namespace XIVLauncher.Common.Game
             };
         }
 
-        public async Task<LoginResult> LoginByScanQrCode(bool autoLogin, CancellationTokenSource cts, Action<byte[]> showQrCode, DcTraveler dcTraveler)
+        public async Task<LoginResult> LoginByScanQrCode(bool autoLogin, CancellationTokenSource cts, Action<byte[]> showQrCode, DcTraveler dcTraveler, RisingstoneCheckIn risingstoneCheckIn)
         {
             var guid = await this.GetGuid();
             // Wait for Scan QrCode
@@ -199,6 +209,12 @@ namespace XIVLauncher.Common.Game
                 dcTraveler.RefreshDcTravelSessionIdFunc = () => this.GetDcTravelSessionId(tgt, guid);
                 dcTraveler.RefreshGameSessionByGuidFunc = () => this.GetSessionId(tgt, guid);
             }
+            
+            if (risingstoneCheckIn != null)
+            {
+                risingstoneCheckIn.RefreshRisingstoneCookieFunc = () => this.GetRisingstoneCookieAsync(tgt, guid);
+            }
+            
             var sessionId = await GetSessionId(tgt, guid);
 
             var oath = new OauthLoginResult
@@ -218,7 +234,7 @@ namespace XIVLauncher.Common.Game
             };
         }
 
-        public async Task<LoginResult> LoginBySlide(string account, bool autoLogin, CancellationTokenSource cts, Action<string> showVerificationCode, DcTraveler dcTraveler)
+        public async Task<LoginResult> LoginBySlide(string account, bool autoLogin, CancellationTokenSource cts, Action<string> showVerificationCode, DcTraveler dcTraveler, RisingstoneCheckIn risingstoneCheckIn)
         {
             var guid = await this.GetGuid();
             // Wait for Slide
@@ -231,6 +247,12 @@ namespace XIVLauncher.Common.Game
                 dcTraveler.RefreshDcTravelSessionIdFunc = () => this.GetDcTravelSessionId(tgt, guid);
                 dcTraveler.RefreshGameSessionByGuidFunc = () => this.GetSessionId(tgt, guid);
             }
+            
+            if (risingstoneCheckIn != null)
+            {
+                risingstoneCheckIn.RefreshRisingstoneCookieFunc = () => this.GetRisingstoneCookieAsync(tgt, guid);
+            }
+            
             var sessionId = await GetSessionId(tgt, guid);
 
             var oath = new OauthLoginResult
@@ -250,7 +272,7 @@ namespace XIVLauncher.Common.Game
             };
         }
 
-        public async Task<LoginResult> LoginBySessionKey(string account, string autoLoginSessionKey, DcTraveler dcTraveler)
+        public async Task<LoginResult> LoginBySessionKey(string account, string autoLoginSessionKey, DcTraveler dcTraveler, RisingstoneCheckIn risingstoneCheckIn)
         {
             var guid = await this.GetGuid();
             //快速登录,刷新SessionKey
@@ -274,6 +296,12 @@ namespace XIVLauncher.Common.Game
                     dcTraveler.RefreshDcTravelSessionIdFunc = () => this.GetDcTravelSessionId(tgt, guid);
                     dcTraveler.RefreshGameSessionByGuidFunc = () => this.GetSessionId(tgt, guid);
                 }
+                
+                if (risingstoneCheckIn != null)
+                {
+                    risingstoneCheckIn.RefreshRisingstoneCookieFunc = () => this.GetRisingstoneCookieAsync(tgt, guid);
+                }
+                
                 var sessionId = await GetSessionId(tgt, guid);
                 var oath = new OauthLoginResult
                 {
@@ -316,6 +344,232 @@ namespace XIVLauncher.Common.Game
         {
             var promotionResult = await GetPromotionInfo(tgt, "https://ff14bjz.sdo.com/RegionKanTelepo");
             return await SsoLogin(tgt, guid);
+        }
+
+        /// <summary>
+        /// 获取石之家登录的 ticket(appId=6788)
+        /// </summary>
+        public async Task<string> GetRisingstoneTicket(string tgt, string guid)
+        {
+            const string RISINGSTONE_APP_ID = "6788";
+            // serviceUrl 需要 URL 编码
+            var serviceUrl = "https://apiff14risingstones.web.sdo.com/api/home/GHome/login?redirectUrl=https://ff14risingstones.web.sdo.com/pc/index.html";
+            Log.Information($"[Risingstone] GetRisingstoneTicket: tgt={tgt?.Substring(0, Math.Min(10, tgt?.Length ?? 0))}..., guid={guid}, appId={RISINGSTONE_APP_ID}");
+            
+            try
+            {
+                // appId=6788 调用 GetPromotionInfo
+                var promotionResult = await GetPromotionInfoWithAppId(tgt, serviceUrl, RISINGSTONE_APP_ID);
+                Log.Information($"[Risingstone] GetPromotionInfo success: returnCode={promotionResult.ReturnCode}");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "[Risingstone] GetPromotionInfo failed");
+                throw;
+            }
+            
+            // appId=6788 调用 SsoLogin
+            var ticket = await SsoLoginWithAppId(tgt, guid, RISINGSTONE_APP_ID);
+            Log.Information($"[Risingstone] SsoLogin success: ticket={ticket?.Substring(0, Math.Min(20, ticket?.Length ?? 0))}...");
+            return ticket;
+        }
+
+        /// <summary>
+        /// 获取石之家登录 Cookie (ff14risingstones=xxx)
+        /// </summary>
+        public async Task<string> GetRisingstoneCookieAsync(string tgt, string guid)
+        {
+            var ticket = await GetRisingstoneTicket(tgt, guid);
+            Log.Information($"[Risingstone] Got ticket: {ticket?.Substring(0, Math.Min(20, ticket?.Length ?? 0))}...");
+            
+            var cookieContainer = new CookieContainer();
+            var handler = new HttpClientHandler
+            {
+                CookieContainer = cookieContainer,
+                AllowAutoRedirect = true,
+                UseCookies = true,
+                AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate | DecompressionMethods.Brotli
+            };
+            
+            using var httpClient = new HttpClient(handler);
+            
+            // API 风格的请求头
+            httpClient.DefaultRequestHeaders.Clear();
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json, text/plain, */*");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Language", "zh-CN,zh;q=0.9,en;q=0.8");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Ch-Ua", "\"Microsoft Edge\";v=\"122\", \"Chromium\";v=\"122\", \"Not/A)Brand\";v=\"24\"");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Ch-Ua-Mobile", "?0");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Ch-Ua-Platform", "\"Windows\"");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Dest", "empty");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Mode", "cors");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Site", "same-site");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0");
+
+            try
+            {
+                // 第一步：先访问石之家主页，获取初始 Cookie 和建立 WAF 会话
+                Log.Information("[Risingstone] Step 1: Visiting homepage to establish session...");
+                var homepageUrl = "https://ff14risingstones.web.sdo.com/pc/index.html";
+                
+                // 第一次访问主页时临时切换为文档请求风格
+                httpClient.DefaultRequestHeaders.Remove("Accept");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Dest");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Mode");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Site");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html,*/*");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Dest", "document");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Mode", "navigate");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Site", "none");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-User", "?1");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Upgrade-Insecure-Requests", "1");
+                
+                using var homeResp = await httpClient.GetAsync(homepageUrl);
+                Log.Information($"[Risingstone] Homepage response status: {homeResp.StatusCode}");
+                
+                await Task.Delay(500);
+                
+                // 第二步：调用登录 API - 切换回 API 风格
+                var initialUrl = $"https://apiff14risingstones.web.sdo.com/api/home/GHome/login?redirectUrl=https://ff14risingstones.web.sdo.com/pc/index.html&ticket={ticket}";
+                Log.Information($"[Risingstone] Step 2: Calling login API...");
+                
+                // 恢复 API 风格的请求头
+                httpClient.DefaultRequestHeaders.Remove("Accept");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Dest");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Mode");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Site");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-User");
+                httpClient.DefaultRequestHeaders.Remove("Upgrade-Insecure-Requests");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json, text/plain, */*");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Dest", "empty");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Mode", "cors");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Site", "same-site");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Referer", "https://ff14risingstones.web.sdo.com/");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Origin", "https://ff14risingstones.web.sdo.com");
+                
+                using var loginResp = await httpClient.GetAsync(initialUrl);
+                var loginRespText = await loginResp.Content.ReadAsStringAsync();
+                Log.Information($"[Risingstone] Login API response status: {loginResp.StatusCode}");
+                
+                // 检查是否被 WAF 拦截
+                if ((int)loginResp.StatusCode == 567 || loginRespText.Contains("EdgeOne") || loginRespText.Contains("AccessDeny"))
+                {
+                    Log.Error("[Risingstone] Request blocked by WAF");
+                    throw new Exception("Request blocked by WAF. Please try again later.");
+                }
+                
+                // 检查登录 API 响应
+                if (loginRespText.Contains("\"code\""))
+                {
+                    try
+                    {
+                        var loginJson = System.Text.Json.JsonDocument.Parse(loginRespText);
+                        if (loginJson.RootElement.TryGetProperty("code", out var codeElement))
+                        {
+                            var code = codeElement.GetInt32();
+                            if (code != 10000 && code != 0)
+                            {
+                                var msg = loginJson.RootElement.TryGetProperty("msg", out var msgElement) 
+                                    ? msgElement.GetString() 
+                                    : "Unknown error";
+                                Log.Error($"[Risingstone] Login API returned error: code={code}, msg={msg}");
+                                throw new Exception($"Risingstone login failed: ({code}){msg}");
+                            }
+                        }
+                    }
+                    catch (System.Text.Json.JsonException)
+                    {
+                        // 不是 JSON 响应，可能是重定向页面，继续处理
+                    }
+                }
+                
+                // 第三步：请求目标页面完成会话
+                await Task.Delay(200);
+                Log.Information("[Risingstone] Step 3: Finalizing session...");
+                
+                // 恢复文档请求风格访问主页
+                httpClient.DefaultRequestHeaders.Remove("Accept");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Dest");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Mode");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Site");
+                httpClient.DefaultRequestHeaders.Remove("Referer");
+                httpClient.DefaultRequestHeaders.Remove("Origin");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html,*/*");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Dest", "document");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Mode", "navigate");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Site", "same-origin");
+                
+                using var finalResp = await httpClient.GetAsync(homepageUrl);
+                Log.Information($"[Risingstone] Final page response status: {finalResp.StatusCode}");
+
+                // 第四步：调用 isLogin API 触发 Cookie 设置 - 再切回 API 风格
+                httpClient.DefaultRequestHeaders.Remove("Accept");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Dest");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Mode");
+                httpClient.DefaultRequestHeaders.Remove("Sec-Fetch-Site");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json, text/plain, */*");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Dest", "empty");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Mode", "cors");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Sec-Fetch-Site", "same-site");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Referer", "https://ff14risingstones.web.sdo.com/");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-Requested-With", "XMLHttpRequest");
+
+                var isLoginUrl = $"https://apiff14risingstones.web.sdo.com/api/home/GHome/isLogin?tempsuid={Guid.NewGuid()}";
+                using var isLoginResp = await httpClient.GetAsync(isLoginUrl);
+                var isLoginText = await isLoginResp.Content.ReadAsStringAsync();
+                Log.Information($"[Risingstone] isLogin response: {isLoginText}");
+
+                // 验证 isLogin 响应
+                try
+                {
+                    var isLoginJson = System.Text.Json.JsonDocument.Parse(isLoginText);
+                    if (isLoginJson.RootElement.TryGetProperty("code", out var codeElement))
+                    {
+                        var code = codeElement.GetInt32();
+                        if (code != 10000)
+                        {
+                            var msg = isLoginJson.RootElement.TryGetProperty("msg", out var msgElement) 
+                                ? msgElement.GetString() 
+                                : "Not logged in";
+                            Log.Error($"[Risingstone] isLogin check failed: code={code}, msg={msg}");
+                            throw new Exception($"Risingstone login verification failed: ({code}){msg}");
+                        }
+                        Log.Information("[Risingstone] isLogin check passed, user is logged in");
+                    }
+                }
+                catch (System.Text.Json.JsonException ex)
+                {
+                    Log.Error(ex, "[Risingstone] Failed to parse isLogin response");
+                    throw new Exception("Failed to verify Risingstone login status");
+                }
+
+                // 从 CookieContainer 中提取 ff14risingstones Cookie
+                var allCookies = cookieContainer.GetAllCookies();
+                Log.Information($"[Risingstone] Total cookies collected: {allCookies.Count}");
+                
+                Cookie risingstoneCookie = null;
+                foreach (Cookie c in allCookies)
+                {
+                    if (c.Name.Equals("ff14risingstones", StringComparison.OrdinalIgnoreCase))
+                    {
+                        risingstoneCookie = c;
+                        break;
+                    }
+                }
+
+                if (risingstoneCookie != null && !string.IsNullOrWhiteSpace(risingstoneCookie.Value))
+                {
+                    Log.Information("[Risingstone] Successfully obtained cookie");
+                    return $"ff14risingstones={risingstoneCookie.Value}";
+                }
+
+                Log.Error("[Risingstone] ff14risingstones cookie not found in response");
+                throw new Exception("Failed to obtain ff14risingstones cookie");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "[Risingstone] Failed to get cookie");
+                throw;
+            }
         }
 
         public enum SdoLoginState
@@ -480,9 +734,37 @@ namespace XIVLauncher.Common.Game
             var paras = new List<string>() { $"tgt={tgt}" };
             if (serviceUrl != null)
             {
-                paras.Add($"serviceUrl=${serviceUrl}");
+                paras.Add($"serviceUrl={serviceUrl}");
             }
             var result = await this.GetJsonAsSdoClient("getPromotionInfo.json", paras, tgt);
+            if (result.ReturnCode != 0)
+                throw new SdoLoginException(result.ReturnCode, result.Data.FailReason);
+            return result;
+        }
+
+        /// <summary>
+        /// 使用指定 appId 调用 SsoLogin
+        /// </summary>
+        private async Task<string> SsoLoginWithAppId(string tgt, string guid, string appId)
+        {
+            var result = await this.GetJsonAsSdoClient("ssoLogin.json", new List<string>() { $"tgt={tgt}", $"guid={guid}" }, tgt, appId);
+
+            if (result.ReturnCode != 0)
+                throw new SdoLoginException(result.ReturnCode, result.Data.FailReason);
+            return result.Data.Ticket;
+        }
+
+        /// <summary>
+        /// 使用指定 appId 调用 GetPromotionInfo
+        /// </summary>
+        private async Task<SdoLoginResult> GetPromotionInfoWithAppId(string tgt, string serviceUrl, string appId)
+        {
+            var paras = new List<string>() { $"tgt={tgt}" };
+            if (serviceUrl != null)
+            {
+                paras.Add($"serviceUrl={serviceUrl}");
+            }
+            var result = await this.GetJsonAsSdoClient("getPromotionInfo.json", paras, tgt, appId);
             if (result.ReturnCode != 0)
                 throw new SdoLoginException(result.ReturnCode, result.Data.FailReason);
             return result;
@@ -627,21 +909,21 @@ namespace XIVLauncher.Common.Game
 
         private bool useGlobalDomain = true;
 
-        private Task<HttpResponseMessage> SendSdoHttpRequestAsync(HttpMethod method, string endPoint, List<string> para, string tgt = null)
+        private Task<HttpResponseMessage> SendSdoHttpRequestAsync(HttpMethod method, string endPoint, List<string> para, string tgt = null, string appId = "100001900")
         {
-            var request = this.GetSdoHttpRequestMessage(method, endPoint, para, tgt);
+            var request = this.GetSdoHttpRequestMessage(method, endPoint, para, tgt, appId);
             var response = this.loginClient.SendAsync(request);
             return response;
         }
 
-        private HttpRequestMessage GetSdoHttpRequestMessage(HttpMethod method, string endPoint, List<string> para, string tgt = null)
+        private HttpRequestMessage GetSdoHttpRequestMessage(HttpMethod method, string endPoint, List<string> para, string tgt = null, string appId = "100001900")
         {
             var mac = SdoUtils.GetMac();
             var commonParas = new List<string>();
             commonParas.Add("authenSource=1");
-            commonParas.Add($"appId=100001900");
+            commonParas.Add($"appId={appId}");
             commonParas.Add($"areaId=1");
-            commonParas.Add($"appIdSite=100001900");
+            commonParas.Add($"appIdSite={appId}");
             commonParas.Add("locale=zh_CN");
             commonParas.Add("productId=4");
             commonParas.Add("frameType=1");
@@ -677,10 +959,10 @@ namespace XIVLauncher.Common.Game
         }
 
 
-        private async Task<SdoLoginResult> GetJsonAsSdoClient(string endPoint, List<string> para, string tgt = null)
+        private async Task<SdoLoginResult> GetJsonAsSdoClient(string endPoint, List<string> para, string tgt = null, string appId = "100001900")
         {
             try {
-                var response = await this.SendSdoHttpRequestAsync(HttpMethod.Get, endPoint, para, tgt);
+                var response = await this.SendSdoHttpRequestAsync(HttpMethod.Get, endPoint, para, tgt, appId);
                 var reply = await response.Content.ReadAsStringAsync();
                 try
                 {
@@ -701,7 +983,7 @@ namespace XIVLauncher.Common.Game
                     Log.Error(ex, "GetJsonAsSdoClient");
                     Log.Error("Switch to n1.cas.sdo.com");
                     this.useGlobalDomain = false;
-                    return await this.GetJsonAsSdoClient(endPoint, para, tgt);
+                    return await this.GetJsonAsSdoClient(endPoint, para, tgt, appId);
                 }
                 else
                 {
@@ -710,7 +992,7 @@ namespace XIVLauncher.Common.Game
             }
         }
 
-        public Process? LaunchGameSdo(IGameRunner runner, string sessionId, string sndaId, int dcTravelPort, string areaId, string lobbyHost, string gmHost, string dbHost, string areasInfo,
+        public Process? LaunchGameSdo(IGameRunner runner, string sessionId, string sndaId, int dcTravelPort, int risingstonePort, string areaId, string lobbyHost, string gmHost, string dbHost, string areasInfo,
                                       string additionalArguments, DirectoryInfo gamePath, bool encryptArguments, DpiAwareness dpiAwareness)
         {
             Log.Information(
@@ -731,7 +1013,8 @@ namespace XIVLauncher.Common.Game
                                   .Append("DEV.TestSID", sessionId)
                                   .Append("XL.SndaId", sndaId)
                                   .Append("XL.LobbyHosts", $"{areasInfo}")
-                                  .Append("XL.DcTraveler", $"{dcTravelPort}");
+                                  .Append("XL.DcTraveler", $"{dcTravelPort}")
+                                  .Append("XL.Risingstone", $"{risingstonePort}");
             // This is a bit of a hack; ideally additionalArguments would be a dictionary or some KeyValue structure
             if (!string.IsNullOrEmpty(additionalArguments))
             {

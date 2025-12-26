@@ -5,10 +5,12 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Serilog;
+using XIVLauncher.Common.Http;
 using XIVLauncher.Common.Util;
 
 #if FLATPAK
@@ -34,7 +36,7 @@ public class CompatibilityTools
 #endif
     private const string WINE_XIV_RELEASE_NAME = "wine-xiv-staging-fsync-git-8.5.r4.g4211bac7";
 
-    private const string SD_WINE_XIV_RELEASE_URL = "https://raw.githubusercontent.com/Dalamud-DailyRoutines/XLCNSoilAssets/master/wine/wine-xiv-staging-fsync-git-ubuntu-8.5.r4.g4211bac7.tar.xz";
+    private const string SD_WINE_XIV_RELEASE_URL = "https://gh.atmoomen.top/https://raw.githubusercontent.com/Dalamud-DailyRoutines/XLCNSoilAssets/master/wine/wine-xiv-staging-fsync-git-ubuntu-8.5.r4.g4211bac7.tar.xz";
     private const string SD_WINE_XIV_RELEASE_NAME = "wine-xiv-staging-fsync-git-8.5.r4.g4211bac7";
 
     public bool IsToolReady { get; private set; }
@@ -128,7 +130,14 @@ public class CompatibilityTools
 
     private async Task DownloadTool(DirectoryInfo tempPath)
     {
-        using var client = new HttpClient();
+        using var client = new HttpClient(new SocketsHttpHandler
+        {
+            AutomaticDecompression         = DecompressionMethods.All,
+            MaxConnectionsPerServer        = 20,
+            EnableMultipleHttp2Connections = true,
+            ConnectTimeout                 = TimeSpan.FromSeconds(5),
+            ConnectCallback = HappyEyeballsCallback.ConnectCallback
+        });
         client.DefaultRequestHeaders.Add("User-Agent", PlatformHelpers.GetVersion());
         var tempFilePath = Path.Combine(tempPath.FullName, $"{Guid.NewGuid()}");
 
