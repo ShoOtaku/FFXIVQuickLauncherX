@@ -136,6 +136,16 @@ namespace XIVLauncher.Windows
             SaveProfiles();
         }
 
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveProfiles();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private string GetMacAddressHash()
         {
             var mac = NetworkInterface.GetAllNetworkInterfaces()
