@@ -317,14 +317,10 @@ public class DalamudUpdater
     
     public async Task GetDalamudVersionInfoAsync()
     {
-<<<<<<< HEAD
-        // Dalamud 更新不使用代理,直接访问 GitHub
         var handler = new HttpClientHandler();
         using var httpClient = new HttpClient(handler);
         httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("XIVLauncherCN");
 
-=======
->>>>>>> 15c6b43a6543dc5fbe54fe3a44199b8cf9eeb6b3
         try
         {
             var runtimeResponse = await httpClient.GetAsync(
@@ -332,9 +328,9 @@ public class DalamudUpdater
             runtimeResponse.EnsureSuccessStatusCode();
             RuntimeVersion = await runtimeResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
             RuntimeVersion = RuntimeVersion.Trim().Trim('\n');
-            
-            Log.Information("[DUPDATE] 获取到远端 Dalamud 运行时版本: {0}", RuntimeVersion);
-            
+
+            Log.Information("[DUPDATE] Runtime version {0}", RuntimeVersion);
+
             var response = await httpClient.GetAsync(
                                "https://gh.atmoomen.top/raw.githubusercontent.com/Dalamud-DailyRoutines/ghapi-json-generator/output/v2/repos/AtmoOmen/Dalamud/releases/latest/data.json");
             response.EnsureSuccessStatusCode();
@@ -344,9 +340,9 @@ public class DalamudUpdater
 
             var version = jsonDoc.RootElement.GetProperty("tag_name").GetString();
             if (string.IsNullOrWhiteSpace(version))
-                throw new NullReferenceException("[DUPDATE] 未能找到对应的版本信息");
+                throw new NullReferenceException("[DUPDATE] Failed to find version info");
             Version = version!;
-            
+
             var assets  = jsonDoc.RootElement.GetProperty("assets");
             foreach (var asset in assets.EnumerateArray())
             {
@@ -366,18 +362,18 @@ public class DalamudUpdater
 
                     var hash = ComputeFileHash(downloadPath);
                     File.Delete(downloadPath);
-                    
-                    Log.Information($"[DUPDATE] 获取到远端 Dalamud 哈希: {hash}");
+
+                    Log.Information("[DUPDATE] Remote Dalamud hash: {0}", hash);
                     OnlineHash = hash;
                     return;
                 }
             }
 
-            throw new NullReferenceException("[DUPDATE] 未能找到对应的 hashes.json 文件");
+            throw new NullReferenceException("[DUPDATE] Failed to find hashes.json");
         }
-        catch (HttpRequestException e) { throw new Exception("访问 Github API 时发生错误: " + e.Message); }
-        catch (TaskCanceledException) { throw new Exception("下载超时"); }
-        catch (OperationCanceledException) { throw new Exception("下载取消"); }
+        catch (HttpRequestException e) { throw new Exception("Error accessing GitHub API " + e.Message); }
+        catch (TaskCanceledException) { throw new Exception("Download timeout"); }
+        catch (OperationCanceledException) { throw new Exception("Download canceled"); }
     }
 
     private async Task DownloadDalamud(DirectoryInfo addonPath)
@@ -387,29 +383,25 @@ public class DalamudUpdater
         if (addonPath.Exists) addonPath.Delete(true);
         addonPath.Create();
 
-<<<<<<< HEAD
         var handler = new HttpClientHandler();
         var proxy = ProxySettings.GetWebProxy();
         if (proxy != null)
         {
             handler.Proxy = proxy;
             handler.UseProxy = true;
-            handler.PreAuthenticate = true; // 预认证,避免多次握手
+            handler.PreAuthenticate = true;
         }
 
         using var httpClient = new HttpClient(handler);
-        // 如果使用代理,设置更长的超时时间 (3分钟)
         if (proxy != null)
         {
             httpClient.Timeout = TimeSpan.FromMinutes(3);
-            Log.Information("[代理] [DUPDATE] DownloadDalamud 已将 HttpClient 超时时间设置为 3 分钟");
+            Log.Information("[Proxy] [DUPDATE] DownloadDalamud set HttpClient timeout to 3 minutes");
         }
         httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("XIVLauncherCN");
         if (!string.IsNullOrWhiteSpace(this.githubToken))
             httpClient.DefaultRequestHeaders.Authorization = new("Bearer", this.githubToken);
 
-=======
->>>>>>> 15c6b43a6543dc5fbe54fe3a44199b8cf9eeb6b3
         try
         {
             var response = await httpClient.GetAsync(REPO_API);
@@ -420,36 +412,36 @@ public class DalamudUpdater
             var       assets  = jsonDoc.RootElement.GetProperty("assets");
 
             var downloadPath = PlatformHelpers.GetTempFileName();
-            
+
             foreach (var asset in assets.EnumerateArray())
             {
                 var fileName    = asset.GetProperty("name").GetString()!;
                 var downloadUrl = asset.GetProperty("browser_download_url").GetString()!;
 
                 if (fileName != "latest.7z") continue;
-                
+
                 await this.DownloadFile($"{downloadUrl}", downloadPath, this.defaultTimeout).ConfigureAwait(false);
                 PlatformHelpers.Unzip7ZAsset(downloadPath, addonPath.FullName);
                 File.Delete(downloadPath);
                 break;
             }
-            
+
             try
             {
                 var devPath = new DirectoryInfo(Path.Combine(addonPath.FullName, "..", "dev"));
                 PlatformHelpers.DeleteAndRecreateDirectory(devPath);
                 PlatformHelpers.CopyFilesRecursively(addonPath, devPath);
             }
-            catch (Exception ex) { Log.Error(ex, "[DUPDATE] 复制到 dev 目录失败"); }
+            catch (Exception ex) { Log.Error(ex, "[DUPDATE] Failed to copy dev directory"); }
         }
         catch (HttpRequestException e)
         {
-            Log.Error(e, "[DUPDATE] GitHub API 请求失败");
+            Log.Error(e, "[DUPDATE] GitHub API request failed");
             throw;
         }
         catch (Exception ex)
         {
-            Log.Error(ex, "[DUPDATE] 下载过程中发生错误");
+            Log.Error(ex, "[DUPDATE] Error during download");
             throw;
         }
     }

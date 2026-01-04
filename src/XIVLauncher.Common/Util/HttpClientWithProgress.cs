@@ -26,18 +26,8 @@ public class HttpClientDownloadWithProgress(string downloadUrl, string destinati
         timeout ??= TimeSpan.FromMinutes(10);
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-        // 不使用代理,直接访问 GitHub 等资源
-        var handler = new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip };
-
-        this.httpClient = new HttpClient(handler) { Timeout = timeout.Value };
-        this.httpClient.DefaultRequestHeaders.Add("User-Agent", PlatformHelpers.GetVersion());
-        this.httpClient.DefaultRequestHeaders.Add("accept-encoding", "gzip, deflate, br");
-        
-        var request = new HttpRequestMessage(HttpMethod.Get, this.downloadUrl);
-        if (isNuGet)
-        timeout            ??= TimeSpan.FromMinutes(10);
         this.parallelParts =   Environment.ProcessorCount;
-        Log.Information("[DUPDATE] 下载线程数: {0}", this.parallelParts);
+        Log.Information("[DUPDATE] Download threads: {0}", this.parallelParts);
 
         var handler = new SocketsHttpHandler
         {
@@ -48,7 +38,8 @@ public class HttpClientDownloadWithProgress(string downloadUrl, string destinati
             ConnectCallback = HappyEyeballsCallback.ConnectCallback
         };
         this.httpClient = new HttpClient(handler) { Timeout = timeout.Value };
-        this.httpClient.DefaultRequestHeaders.Add("User-Agent",      PlatformHelpers.GetVersion());
+        this.httpClient.DefaultRequestHeaders.Add("User-Agent", PlatformHelpers.GetVersion());
+        this.httpClient.DefaultRequestHeaders.Add("accept-encoding", "gzip, deflate, br");
 
         var probeTotalSize = await this.ProbeRangeSupport(isNuGet).ConfigureAwait(false);
 
