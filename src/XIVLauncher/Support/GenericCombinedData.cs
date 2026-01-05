@@ -1,4 +1,4 @@
-namespace XIVLauncher.Support;
+﻿namespace XIVLauncher.Support;
 
 /// <summary>
 /// Generic combined data class.

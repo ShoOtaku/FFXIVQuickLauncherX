@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 using CheapLoc;
 using Newtonsoft.Json.Linq;
 using Serilog;

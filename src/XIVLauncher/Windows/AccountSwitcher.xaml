@@ -1,4 +1,4 @@
-<Window x:Class="XIVLauncher.Windows.AccountSwitcher"
+﻿<Window x:Class="XIVLauncher.Windows.AccountSwitcher"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -28,6 +28,7 @@
                         <ContextMenu Opened="AccountListViewContext_Opened" StaysOpen="true">
                             <!--<MenuItem Header="{Binding AccountSwitcherSetProfilePicLoc}" Click="SetProfilePicture_OnClick"  Foreground="{DynamicResource MaterialDesignBody}"/>-->
                             <MenuItem Header="{Binding AccountSwitcherCreateShortcutLoc}" Click="CreateDesktopShortcut_OnClick" Foreground="{DynamicResource MaterialDesignBody}"/>
+                            <MenuItem Header="账号网络配置..." Click="AccountNetworkSettings_OnClick" Foreground="{DynamicResource MaterialDesignBody}"/>
                             <MenuItem Header="{Binding RemoveLoc}" Click="RemoveAccount_OnClick" Foreground="{DynamicResource MaterialDesignBody}"/>
                             <MenuItem x:Name="AccountEntrySavePasswordCheck" Visibility="Collapsed" IsCheckable="true" Header="{Binding AccountSwitcherDontSavePasswordLoc}" Checked="DontSavePassword_OnChecked" Unchecked="DontSavePassword_OnUnchecked" Foreground="{DynamicResource MaterialDesignBody}"/>
                         </ContextMenu>

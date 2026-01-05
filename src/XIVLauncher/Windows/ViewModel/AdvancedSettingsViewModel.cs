@@ -1,4 +1,4 @@
-using CheapLoc;
+﻿using CheapLoc;
 
 namespace XIVLauncher.Windows.ViewModel;
 

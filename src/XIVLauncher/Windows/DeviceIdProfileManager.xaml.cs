@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -136,6 +136,16 @@ namespace XIVLauncher.Windows
             SaveProfiles();
         }
 
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveProfiles();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private string GetMacAddressHash()
         {
             var mac = NetworkInterface.GetAllNetworkInterfaces()
@@ -201,3 +211,4 @@ namespace XIVLauncher.Windows
         }
     }
 }
+

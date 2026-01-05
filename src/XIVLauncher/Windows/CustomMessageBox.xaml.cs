@@ -1,4 +1,4 @@
-using CheapLoc;
+﻿using CheapLoc;
 using MaterialDesignThemes.Wpf;
 using Serilog;
 using System;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -308,6 +308,7 @@ namespace XIVLauncher.Windows
             //if (this._accountManager.CurrentAccount != null && !_accountManager.CurrentAccount.Password.IsNullOrEmpty()) ShowPassword_OnClick(null, null);
 
             var savedAccount = _accountManager.CurrentAccount;
+            AccountNetworkOverrideStore.ApplyToAccount(savedAccount);
 
             if (App.Settings.UniqueIdCacheEnabled && Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
             {
@@ -590,6 +591,7 @@ namespace XIVLauncher.Windows
 
         private void SwitchAccount(XivAccount account, bool saveAsCurrent)
         {
+            AccountNetworkOverrideStore.ApplyToAccount(account);
             if (saveAsCurrent)
             {
                 _accountManager.CurrentAccount = account;

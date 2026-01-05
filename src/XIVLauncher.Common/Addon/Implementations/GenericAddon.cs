@@ -1,4 +1,4 @@
-using Serilog;
+﻿using Serilog;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;

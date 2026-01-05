@@ -1,4 +1,4 @@
-namespace XIVLauncher.Common
+﻿namespace XIVLauncher.Common
 {
     public enum ProxyType
     {

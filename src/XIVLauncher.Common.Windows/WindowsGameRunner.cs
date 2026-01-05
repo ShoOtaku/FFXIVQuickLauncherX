@@ -1,4 +1,4 @@
-using FfxivArgLauncher;
+﻿using FfxivArgLauncher;
 using Serilog;
 using System;
 using System.Collections.Generic;

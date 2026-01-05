@@ -1,4 +1,4 @@
-using AriaNet.Attributes;
+﻿using AriaNet.Attributes;
 using EmbedIO;
 using EmbedIO.Routing;
 using EmbedIO.WebApi;

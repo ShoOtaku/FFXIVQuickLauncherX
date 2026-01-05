@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -106,8 +106,8 @@ namespace XIVLauncher
 
         public static Brush UaBrush = new LinearGradientBrush(new GradientStopCollection()
         {
-            new(Color.FromArgb(0xFF, 0xFF, 0x4D, 0x00), 0.0f), // 暗琥珀色
-            new(Color.FromArgb(0xFF, 0xFF, 0xD7, 0x00), 1.0f), // 亮橙红色
+            new(Color.FromArgb(0xFF, 0xFF, 0x4D, 0x00), 0.0f), // ???????
+            new(Color.FromArgb(0xFF, 0xFF, 0xD7, 0x00), 1.0f), // ??????
         }, 0.7f);
 
         public App()
@@ -346,7 +346,7 @@ namespace XIVLauncher
             });
         }
 
-        // 配置文件保存在 exe 所在目录,不影响 AppData 下的正常配置
+        // ????????????? exe ??????,????? AppData ?μ?????????
         private static string GetConfigPath(string prefix) => Path.Combine(AppContext.BaseDirectory, $"{prefix}ConfigV3.json");
 
         private void App_OnStartup(object sender, StartupEventArgs e)
@@ -516,7 +516,7 @@ namespace XIVLauncher
                     if (ex is HttpRequestException httpRequestException && httpRequestException.StatusCode.HasValue && (int)httpRequestException.StatusCode is 403 or 444 or 522)
                     {
                         MessageBox.Show(
-                            "错误: " + $"服务器返回了错误代码 {httpRequestException.StatusCode}.\n你的IP可能被WAF封禁, 请前往频道进行上报." + Environment.NewLine +
+                            "错误: " + $"服务器返回了错误代码 {httpRequestException.StatusCode}.\n你的IP可能被WAF封禁，请前往频道进行上报." + Environment.NewLine +
                             "XIVLauncher could not check for updates. Please check your internet connection or try again.\n\n" + ex,
                             "XIVLauncher Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }

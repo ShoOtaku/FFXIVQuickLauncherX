@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Steamworks;
 using XIVLauncher.Common.PlatformAbstractions;

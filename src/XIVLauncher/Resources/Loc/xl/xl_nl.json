@@ -1,4 +1,4 @@
-{
+﻿{
   "Refresh": {
     "message": "_Verversen",
     "description": "AppUtil.TryYellOnGameFilesBeingOpen"
@@ -16,11 +16,11 @@
     "description": "<Run>d__20.MoveNext"
   },
   "RunOfficialLauncherNotPresentError": {
-    "message": "U hebt geen spel installatie ingesteld. XIVLauncher kan de officiële launcher niet starten.",
+    "message": "U hebt geen spel installatie ingesteld. XIVLauncher kan de offici?le launcher niet starten.",
     "description": "CustomMessageBox.OfficialLauncherButton_Click"
   },
   "RunOfficialLauncherConfirmSteam": {
-    "message": "Heb je je spel account gekoppeld aan een Steam account? Als dit het geval is, moet Steam zijn geïnstalleerd om door te gaan.",
+    "message": "Heb je je spel account gekoppeld aan een Steam account? Als dit het geval is, moet Steam zijn ge?nstalleerd om door te gaan.",
     "description": "CustomMessageBox.OfficialLauncherButton_Click"
   },
   "RunOfficialLauncherSteamError": {
@@ -32,7 +32,7 @@
     "description": "CustomMessageBox.AssertOrShowError"
   },
   "ErrorExplanation": {
-    "message": "Er is een fout opgetreden in XIVLauncher. Raadpleeg de FAQ. Als dit probleem zich blijft voordoen, rapporteer het dan op GitHub door op de knop hieronder te klikken, het probleem beschrijven en de tekst in het vak kopiëren.",
+    "message": "Er is een fout opgetreden in XIVLauncher. Raadpleeg de FAQ. Als dit probleem zich blijft voordoen, rapporteer het dan op GitHub door op de knop hieronder te klikken, het probleem beschrijven en de tekst in het vak kopi?ren.",
     "description": "CustomMessageBox..cctor"
   },
   "Restart": {
@@ -96,7 +96,7 @@
     "description": "MainWindow.<SetupHeadlines>b__13_3"
   },
   "MaintenanceQueueBootPatch": {
-    "message": "Er is een patch voor de officiële launcher gedetecteerd.\nDit betekent meestal dat er ook een patch voor het spel is.\n\nU wordt nu ingelogd.",
+    "message": "Er is een patch voor de offici?le launcher gedetecteerd.\nDit betekent meestal dat er ook een patch voor het spel is.\n\nU wordt nu ingelogd.",
     "description": "<OnMaintenanceQueueTimerEvent>d__22.MoveNext"
   },
   "SettingsGamePatchPathError": {
@@ -108,7 +108,7 @@
     "description": "SettingsControl.OriginalLauncherButton_OnClick"
   },
   "IntegrityCheckBase": {
-    "message": "Het spel is niet geïnstalleerd op het pad dat je hebt opgegeven.\nInstalleer het spel voordat je een integriteitscontrole uitvoert.",
+    "message": "Het spel is niet ge?nstalleerd op het pad dat je hebt opgegeven.\nInstalleer het spel voordat je een integriteitscontrole uitvoert.",
     "description": "SettingsControl.RunIntegrityCheck_OnClick"
   },
   "DalamudIncompatible": {
@@ -224,7 +224,7 @@
     "description": "ChatChannelSetupViewModel.SetupLoc"
   },
   "StartOfficialLauncher": {
-    "message": "Officiële Launcher",
+    "message": "Offici?le Launcher",
     "description": "CustomMessageBoxViewModel.SetupLoc"
   },
   "OpenIntegrityReport": {
@@ -252,7 +252,7 @@
     "description": "CustomMessageBoxViewModel.SetupLoc"
   },
   "Copy": {
-    "message": "_Kopiëren",
+    "message": "_Kopi?ren",
     "description": "CustomMessageBoxViewModel.SetupLoc"
   },
   "DalamudUpdate": {
@@ -260,7 +260,7 @@
     "description": "DalamudLoadingOverlayViewModel.SetupLoc"
   },
   "ChooseGamePathFTS": {
-    "message": "Selecteer de map waarin je game is geïnstalleerd.\nHet moet de mappen \"game\" en \"boot\" bevatten.\n\nAls je het spel niet hebt geïnstalleerd, kun je een lege map kiezen en XIVLauncher zal het voor je installeren.",
+    "message": "Selecteer de map waarin je game is ge?nstalleerd.\nHet moet de mappen \"game\" en \"boot\" bevatten.\n\nAls je het spel niet hebt ge?nstalleerd, kun je een lege map kiezen en XIVLauncher zal het voor je installeren.",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "FirstTimeSteamNotice": {
@@ -284,7 +284,7 @@
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "FirstTimeActLaunch": {
-    "message": "Advanced Combat Tracker is geïnstalleerd op uw computer.\nWilt u het automatisch starten bij het starten van het spel?",
+    "message": "Advanced Combat Tracker is ge?nstalleerd op uw computer.\nWilt u het automatisch starten bij het starten van het spel?",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "FirstTimeActLaunchCheckBox": {
@@ -368,11 +368,11 @@
     "description": "IntegrityCheckProgressWindowViewModel.SetupLoc"
   },
   "PatchManDlFailure": {
-    "message": "XIVLauncher kon de gedownloade gamebestanden niet verifiëren. Start opnieuw op en probeer het opnieuw.\n\nDit duidt meestal op een probleem met uw internetverbinding.\nAls deze fout zich blijft voordoen, probeer dan een VPN te gebruiken die is ingesteld op Japan\n\nContext: {0}\n{1}",
+    "message": "XIVLauncher kon de gedownloade gamebestanden niet verifi?ren. Start opnieuw op en probeer het opnieuw.\n\nDit duidt meestal op een probleem met uw internetverbinding.\nAls deze fout zich blijft voordoen, probeer dan een VPN te gebruiken die is ingesteld op Japan\n\nContext: {0}\n{1}",
     "description": "MainWindowViewModel.PatcherOnFail"
   },
   "PatchInstallerInstallFailed": {
-    "message": "Er is een fout opgetreden in het installatieprogramma van de patch.\nMeld deze fout.\n\nProbeer het opnieuw of gebruik de officiële launcher.",
+    "message": "Er is een fout opgetreden in het installatieprogramma van de patch.\nMeld deze fout.\n\nProbeer het opnieuw of gebruik de offici?le launcher.",
     "description": "MainWindowViewModel.InstallerOnFail"
   },
   "LoginBoxUsername": {
@@ -388,7 +388,7 @@
     "description": "MainWindowViewModel.SetupLoc"
   },
   "LoginBoxOtp": {
-    "message": "Éénmalige wachtwoorden gebruiken",
+    "message": "����nmalige wachtwoorden gebruiken",
     "description": "MainWindowViewModel.SetupLoc"
   },
   "LoginBoxSteam": {
@@ -480,7 +480,7 @@
     "description": "<>c__DisplayClass19_0.<GetLoginFunc>b__0"
   },
   "GameIsOpenRepairError": {
-    "message": "Het spel en/of de officiële launcher zijn geopend. XIVLauncher kan het spel niet repareren als dit het geval is.\nSluit ze en probeer het opnieuw.",
+    "message": "Het spel en/of de offici?le launcher zijn geopend. XIVLauncher kan het spel niet repareren als dit het geval is.\nSluit ze en probeer het opnieuw.",
     "description": "<>c__DisplayClass19_0.<GetLoginFunc>b__0"
   },
   "GameRepairDisclaimer": {
@@ -492,11 +492,11 @@
     "description": "<CheckGateStatus>d__22.MoveNext"
   },
   "GateClosed": {
-    "message": "Het spel is momenteel in onderhoud. Probeer het later opnieuw of raadpleeg officiële bronnen voor meer informatie.",
+    "message": "Het spel is momenteel in onderhoud. Probeer het later opnieuw of raadpleeg offici?le bronnen voor meer informatie.",
     "description": "<CheckGateStatus>d__22.MoveNext"
   },
   "CheckBootVersionError": {
-    "message": "XIVLauncher was niet in staat om de opstartversie voor de geselecteerde spelinstallatie te controleren. Dit kan gebeuren als er momenteel onderhoud wordt uitgevoerd of als je verbinding met de versiecontrole server niet beschikbaar is. Rapporteer deze fout als u kunt inloggen met de officiële launcher, maar niet XIVLauncher.",
+    "message": "XIVLauncher was niet in staat om de opstartversie voor de geselecteerde spelinstallatie te controleren. Dit kan gebeuren als er momenteel onderhoud wordt uitgevoerd of als je verbinding met de versiecontrole server niet beschikbaar is. Rapporteer deze fout als u kunt inloggen met de offici?le launcher, maar niet XIVLauncher.",
     "description": "<HandleBootCheck>d__33.MoveNext"
   },
   "BootPatchFailure": {
@@ -504,7 +504,7 @@
     "description": "<HandleBootCheck>d__33.MoveNext"
   },
   "KillswitchText": {
-    "message": "XIVLauncher kan het spel op dit moment niet starten, omdat er tijdens een recente patch wijzigingen zijn aangebracht in het inlog proces.\nWe moeten ons aanpassen aan deze wijzigingen en controleren of onze aanpassingen veilig zijn voordat we het programma opnieuw kunnen inschakelen. Probeer het later opnieuw.\n\nOnze excuses voor deze omstandigheden.\n\nU kunt de onderstaande \"Official Launcher\" knop gebruiken om de officiële Launcher te starten.\n",
+    "message": "XIVLauncher kan het spel op dit moment niet starten, omdat er tijdens een recente patch wijzigingen zijn aangebracht in het inlog proces.\nWe moeten ons aanpassen aan deze wijzigingen en controleren of onze aanpassingen veilig zijn voordat we het programma opnieuw kunnen inschakelen. Probeer het later opnieuw.\n\nOnze excuses voor deze omstandigheden.\n\nU kunt de onderstaande \"Official Launcher\" knop gebruiken om de offici?le Launcher te starten.\n",
     "description": "<Login>d__21.MoveNext"
   },
   "EmptyUsernameError": {
@@ -588,7 +588,7 @@
     "description": "<StartGameAndAddon>d__29.MoveNext"
   },
   "GameIsOpenError": {
-    "message": "Het spel en/of de officiële launcher zijn geopend. XIVLauncher kan het spel niet patchen als dit het geval is.\nSluit de officiële launcher en probeer het opnieuw.",
+    "message": "Het spel en/of de offici?le launcher zijn geopend. XIVLauncher kan het spel niet patchen als dit het geval is.\nSluit de offici?le launcher en probeer het opnieuw.",
     "description": "<TryHandlePatchAsync>d__34.MoveNext"
   },
   "PatchManNoInstaller": {
@@ -604,7 +604,7 @@
     "description": "<TryHandlePatchAsync>d__34.MoveNext"
   },
   "FreeSpaceGameError": {
-    "message": "Er is niet genoeg ruimte op je schijf om patches te installeren.\n\nJe kunt de locatie wijzigen waar het spel is geïnstalleerd in de instellingen.\n\nVereist:{0}\nVrij:{1}",
+    "message": "Er is niet genoeg ruimte op je schijf om patches te installeren.\n\nJe kunt de locatie wijzigen waar het spel is ge?nstalleerd in de instellingen.\n\nVereist:{0}\nVrij:{1}",
     "description": "<TryHandlePatchAsync>d__34.MoveNext"
   },
   "LoginNoOauthTitle": {
@@ -628,7 +628,7 @@
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginSteamIssue": {
-    "message": "Kan niet verifiëren met Steam. Zorg ervoor dat Steam actief is en dat je bent ingelogd met het account dat is gekoppeld aan je SE ID. Als u speelt met de gratis proefversie, vink dan het selectievakje \"Gratis proefaccount gebruiken\" aan op het tabblad \"Spel Instellingen\" van de XIVLauncher-instellingen.\n\nContext: {0}",
+    "message": "Kan niet verifi?ren met Steam. Zorg ervoor dat Steam actief is en dat je bent ingelogd met het account dat is gekoppeld aan je SE ID. Als u speelt met de gratis proefversie, vink dan het selectievakje \"Gratis proefaccount gebruiken\" aan op het tabblad \"Spel Instellingen\" van de XIVLauncher-instellingen.\n\nContext: {0}",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginSteamWrongAccount": {
@@ -636,7 +636,7 @@
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginSteamLinkNeeded": {
-    "message": "Voordat u het spel met dit account start, moet u het koppelen aan uw Steam account met de officiële launcher.\nKoppel je accounts en probeer het opnieuw. Je kan dit doen door te klikken op de knop \"Official Launcher\".",
+    "message": "Voordat u het spel met dit account start, moet u het koppelen aan uw Steam account met de offici?le launcher.\nKoppel je accounts en probeer het opnieuw. Je kan dit doen door te klikken op de knop \"Official Launcher\".",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginGenericError": {
@@ -656,7 +656,7 @@
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginGenericServerIssue": {
-    "message": "De server heeft een ongeldig antwoord gestuurd. Kennelijk gebeurt dit tijdens storingen of wanneer servers zwaar worden belast.\nGelieve een minuut te wachten en opnieuw te proberen, of probeer de officiële launcher te gebruiken.\n\nU kunt meer weten over storingen op de Lodestone.",
+    "message": "De server heeft een ongeldig antwoord gestuurd. Kennelijk gebeurt dit tijdens storingen of wanneer servers zwaar worden belast.\nGelieve een minuut te wachten en opnieuw te proberen, of probeer de offici?le launcher te gebruiken.\n\nU kunt meer weten over storingen op de Lodestone.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "CheckLoginInfoNotAdditionally": {
@@ -672,11 +672,11 @@
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LoginAcceptTermsMessage": {
-    "message": "Accepteer alstublieft de gebruiksvoorwaarden in de officiële launcher.",
+    "message": "Accepteer alstublieft de gebruiksvoorwaarden in de offici?le launcher.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "EverythingIsFuckedMessage": {
-    "message": "Bepaalde essentiële gamebestanden zijn gewijzigd/gebroken door een derde partij en de game kan niet worden bijgewerkt of gestart.\nJe moet het spel opnieuw installeren om door te gaan.\n\nAls dit blijft gebeuren, neem dan contact met ons op via Discord.",
+    "message": "Bepaalde essenti?le gamebestanden zijn gewijzigd/gebroken door een derde partij en de game kan niet worden bijgewerkt of gestart.\nJe moet het spel opnieuw installeren om door te gaan.\n\nAls dit blijft gebeuren, neem dan contact met ons op via Discord.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LoginRepairResponseIsNotNeedsPatchGame": {
@@ -684,11 +684,11 @@
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "PatchInstallDisclaimer": {
-    "message": "Er is een nieuwe patch gevonden die geïnstalleerd moet worden voordat u kunt spelen.\nWilt u dat XIVLauncher deze installeert?",
+    "message": "Er is een nieuwe patch gevonden die ge?nstalleerd moet worden voordat u kunt spelen.\nWilt u dat XIVLauncher deze installeert?",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LoginNoStartOk": {
-    "message": "Er is een update controle uitgevoerd en alle updates zijn geïnstalleerd.",
+    "message": "Er is een update controle uitgevoerd en alle updates zijn ge?nstalleerd.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LaunchGameNonZeroExitCode": {
@@ -824,7 +824,7 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "ChooseGamePath": {
-    "message": "Selecteer de folder waarin het spel is geïnstalleerd.\nHet moet de folders \"game\" en \"boot\" bevatten.",
+    "message": "Selecteer de folder waarin het spel is ge?nstalleerd.\nHet moet de folders \"game\" en \"boot\" bevatten.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "GamePathSafeguardRegionWarning": {
@@ -1108,7 +1108,7 @@
     "description": "ProblemCheck.RunCheck"
   },
   "MacTypeNag": {
-    "message": "MacType is gedetecteerd op deze pc.\nHet zal problemen met het spel veroorzaken; zowel op de officiële launcher als XIVLauncher.\n\nSluit XIVLauncher, ffxivboot, ffxivlauncher, ffxivupdater en ffxiv_dx11 uit van MacType.",
+    "message": "MacType is gedetecteerd op deze pc.\nHet zal problemen met het spel veroorzaken; zowel op de offici?le launcher als XIVLauncher.\n\nSluit XIVLauncher, ffxivboot, ffxivlauncher, ffxivupdater en ffxiv_dx11 uit van MacType.",
     "description": "ProblemCheck.RunCheck"
   },
   "MyGamesWriteAccessNag": {
@@ -1124,7 +1124,7 @@
     "description": "ProblemCheck.RunCheck"
   },
   "GShadeWrongMode": {
-    "message": "Je hebt Gshade geïnstalleerd in een modus die niet optimaal is voor gebruik in combinatie met XIVLauncher. Wil je dat XIVLauncher dit voor je oplost?\n\nDit zal uw voorinstellingen of instellingen niet veranderen, het zal alleen de compatibiliteit met XIVLauncher-functies verbeteren.",
+    "message": "Je hebt Gshade ge?nstalleerd in een modus die niet optimaal is voor gebruik in combinatie met XIVLauncher. Wil je dat XIVLauncher dit voor je oplost?\n\nDit zal uw voorinstellingen of instellingen niet veranderen, het zal alleen de compatibiliteit met XIVLauncher-functies verbeteren.",
     "description": "ProblemCheck.RunCheck"
   }
 }

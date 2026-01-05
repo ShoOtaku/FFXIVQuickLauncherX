@@ -1,4 +1,4 @@
-namespace XIVLauncher.Common.PlatformAbstractions;
+﻿namespace XIVLauncher.Common.PlatformAbstractions;
 
 public interface IUniqueIdCache
 {

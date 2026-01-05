@@ -1,4 +1,4 @@
-namespace XIVLauncher.ArgReader;
+﻿namespace XIVLauncher.ArgReader;
 using FfxivArgLauncher;
 using Serilog;
 using Serilog.Events;

@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using XIVLauncher.Common.Unix.Compatibility.GameFixes.Implementations;
 
 namespace XIVLauncher.Common.Unix.Compatibility.GameFixes;

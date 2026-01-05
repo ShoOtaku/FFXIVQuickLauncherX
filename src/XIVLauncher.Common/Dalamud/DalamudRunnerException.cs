@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace XIVLauncher.Common.Dalamud;
 

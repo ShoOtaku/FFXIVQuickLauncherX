@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -189,9 +189,25 @@ namespace XIVLauncher.Windows
             if (!(AccountListView.SelectedItem is AccountSwitcherEntry selectedEntry))
                 return;
 
+            AccountNetworkOverrideStore.Remove(selectedEntry.Account.Id);
             _accountManager.RemoveAccount(selectedEntry.Account);
 
             RefreshEntries();
+        }
+
+        private void AccountNetworkSettings_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (!(AccountListView.SelectedItem is AccountSwitcherEntry selectedEntry))
+                return;
+
+            var owner = Application.Current?.MainWindow;
+            var window = new AccountNetworkSettingsWindow(selectedEntry.Account);
+            if (owner != null)
+                window.Owner = owner;
+
+            _closing = true;
+            Close();
+            window.ShowDialog();
         }
 
         private void SetProfilePicture_OnClick(object sender, RoutedEventArgs e)

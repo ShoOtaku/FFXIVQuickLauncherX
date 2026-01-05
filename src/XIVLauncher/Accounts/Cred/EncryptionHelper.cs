@@ -1,4 +1,4 @@
-using NSec.Cryptography;
+﻿using NSec.Cryptography;
 using Serilog;
 using System;
 using System.Security.Cryptography;

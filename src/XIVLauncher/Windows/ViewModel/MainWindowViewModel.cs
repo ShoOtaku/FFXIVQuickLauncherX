@@ -1,4 +1,4 @@
-using Castle.Core.Internal;
+﻿using Castle.Core.Internal;
 using CheapLoc;
 using FfxivArgLauncher;
 using Serilog;

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <Product>XIVLauncher.Common.Windows</Product>
         <AssemblyTitle>XIVLauncher.Common.Windows</AssemblyTitle>

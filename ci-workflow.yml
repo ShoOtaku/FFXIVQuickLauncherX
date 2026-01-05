@@ -44,7 +44,8 @@ jobs:
         run: |
           .\scripts\CreateHashList.ps1 .\src\bin\win-x64
           # 移动哈希文件到构建目录
-          Move-Item -Path .\src\bin\win-x64\hashes.txt -Destination .\src\Releases\
+          New-Item -ItemType Directory -Force -Path .\src\Releases | Out-Null
+          Move-Item -Path .\src\bin\win-x64\hashes.json -Destination .\src\Releases\ -Force
       - name: Generate release tag (UTC+8)
         id: generate-tag
         run: |

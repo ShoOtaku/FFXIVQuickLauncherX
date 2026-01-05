@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Net;
 using Serilog;
 
@@ -72,7 +72,7 @@ namespace XIVLauncher.Common
             if (ProxyType == "SOCKS5")
             {
                 Log.Warning("[代理] SOCKS5 代理需要使用第三方工具（如 Proxifier）或系统代理设置");
-                Log.Information("[代理] 建议配置: socks5://{ProxyServer}:{ProxyPort}", ProxyServer, ProxyPort);
+                Log.Information("[代理] 推荐配置: socks5://{ProxyServer}:{ProxyPort}", ProxyServer, ProxyPort);
             }
         }
 

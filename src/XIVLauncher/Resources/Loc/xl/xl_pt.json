@@ -1,4 +1,4 @@
-{
+﻿{
   "Refresh": {
     "message": "_Recarregar",
     "description": "AppUtil.TryYellOnGameFilesBeingOpen"
@@ -16,23 +16,23 @@
     "description": "<Run>d__20.MoveNext"
   },
   "RunOfficialLauncherNotPresentError": {
-    "message": "Você não tem uma instalação do jogo configurada. O XIVLauncher não pode iniciar o launcher oficial.",
+    "message": "Voc�� n?o tem uma instala??o do jogo configurada. O XIVLauncher n?o pode iniciar o launcher oficial.",
     "description": "CustomMessageBox.OfficialLauncherButton_Click"
   },
   "RunOfficialLauncherConfirmSteam": {
-    "message": "Você tem sua conta de jogo associada a uma conta Steam? Se tiver, o Steam deve ser instalado para continuar.",
+    "message": "Voc�� tem sua conta de jogo associada a uma conta Steam? Se tiver, o Steam deve ser instalado para continuar.",
     "description": "CustomMessageBox.OfficialLauncherButton_Click"
   },
   "RunOfficialLauncherSteamError": {
-    "message": "Steam não pode ser carregado. Por favor, inicie o jogo diretamente via Steam.",
+    "message": "Steam n?o pode ser carregado. Por favor, inicie o jogo diretamente via Steam.",
     "description": "CustomMessageBox.OfficialLauncherButton_Click"
   },
   "ErrorAssertionFailed": {
-    "message": "Algo que não pode acontecer aconteceu.",
+    "message": "Algo que n?o pode acontecer aconteceu.",
     "description": "CustomMessageBox.AssertOrShowError"
   },
   "ErrorExplanation": {
-    "message": "Ocorreu um erro no XIVLauncher. Por favor, consulte o FAQ. Se este problema persistir, reporte-o\nno GitHub clicando no botão abaixo, descrevendo o problema e copiando o texto na caixa.",
+    "message": "Ocorreu um erro no XIVLauncher. Por favor, consulte o FAQ. Se este problema persistir, reporte-o\nno GitHub clicando no bot?o abaixo, descrevendo o problema e copiando o texto na caixa.",
     "description": "CustomMessageBox..cctor"
   },
   "Restart": {
@@ -52,7 +52,7 @@
     "description": "Builder.NewFromUnexpectedException"
   },
   "DalamudUpdateDalamud": {
-    "message": "Atualizando o núcleo...",
+    "message": "Atualizando o n��cleo...",
     "description": "<>c__DisplayClass2_0.<SetStep>b__0"
   },
   "DalamudUpdateAssets": {
@@ -68,7 +68,7 @@
     "description": "<>c__DisplayClass2_0.<SetStep>b__0"
   },
   "DalamudUnavailable": {
-    "message": "Plugins estão atualmente indisponíveis\ndevido a uma atualização do jogo.",
+    "message": "Plugins est?o atualmente indispon��veis\ndevido a uma atualiza??o do jogo.",
     "description": "<>c__DisplayClass2_0.<SetStep>b__0"
   },
   "GamePathEmptyError": {
@@ -76,15 +76,15 @@
     "description": "FirstTimeSetup.NextButton_Click"
   },
   "GamePathSafeguardError": {
-    "message": "Por favor, não selecione as pastas \"game\" ou \"boot\" da instalação do seu jogo. Ao invés disso, selecione a pasta que contém estas.",
+    "message": "Por favor, n?o selecione as pastas \"game\" ou \"boot\" da instala??o do seu jogo. Ao inv��s disso, selecione a pasta que cont��m estas.",
     "description": "FirstTimeSetup.NextButton_Click"
   },
   "GamePathInvalidConfirm": {
-    "message": "A pasta selecionada não tem instalações do FFXIV.\nO XIVLauncher irá instalar o jogo na primeira vez que você fizer login.\nContinuar?",
+    "message": "A pasta selecionada n?o tem instala??es do FFXIV.\nO XIVLauncher ir�� instalar o jogo na primeira vez que voc�� fizer login.\nContinuar?",
     "description": "FirstTimeSetup.NextButton_Click"
   },
   "GamePathRegionConfirm": {
-    "message": "A pasta selecionada pode ser da versão chinesa ou coreana do jogo. O XIV Launcher só suporta a versão internacional do jogo.\nA pasta que você selecionou é mesmo a da versão internacional?",
+    "message": "A pasta selecionada pode ser da vers?o chinesa ou coreana do jogo. O XIV Launcher s�� suporta a vers?o internacional do jogo.\nA pasta que voc�� selecionou �� mesmo a da vers?o internacional?",
     "description": "FirstTimeSetup.NextButton_Click"
   },
   "NewsLoading": {
@@ -92,31 +92,31 @@
     "description": "MainWindow..ctor"
   },
   "NewsDlFailed": {
-    "message": "Não foi possível efetuar o download das notícias.",
+    "message": "N?o foi poss��vel efetuar o download das not��cias.",
     "description": "MainWindow.<SetupHeadlines>b__13_3"
   },
   "MaintenanceQueueBootPatch": {
-    "message": "Um ‘patch’ para o launcher oficial foi detectado.\nIsso normalmente significa haver um ‘patch’ para o jogo também.\n\nVocê será logado agora.",
+    "message": "Um ��patch�� para o launcher oficial foi detectado.\nIsso normalmente significa haver um ��patch�� para o jogo tamb��m.\n\nVoc�� ser�� logado agora.",
     "description": "<OnMaintenanceQueueTimerEvent>d__22.MoveNext"
   },
   "SettingsGamePatchPathError": {
-    "message": "Os caminhos de download do jogo e patch não podem ser os mesmos.\nPor favor, certifique-se de escolher caminhos diferentes do jogo e corrigir caminhos.",
+    "message": "Os caminhos de download do jogo e patch n?o podem ser os mesmos.\nPor favor, certifique-se de escolher caminhos diferentes do jogo e corrigir caminhos.",
     "description": "SettingsControl.AcceptButton_Click"
   },
   "LaunchAsSteam": {
-    "message": "Iniciar como usuário do Steam?",
+    "message": "Iniciar como usu��rio do Steam?",
     "description": "SettingsControl.OriginalLauncherButton_OnClick"
   },
   "IntegrityCheckBase": {
-    "message": "O jogo não está instalado no caminho especificado.\nPor favor, instale o jogo antes de executar uma verificação de integridade.",
+    "message": "O jogo n?o est�� instalado no caminho especificado.\nPor favor, instale o jogo antes de executar uma verifica??o de integridade.",
     "description": "SettingsControl.RunIntegrityCheck_OnClick"
   },
   "DalamudIncompatible": {
-    "message": "Dalamud ainda não foi atualizado para a sua versão atual do jogo.\nIsto é comum após atualizações, então, por favor, seja paciente ou pergunte no discord por atualizações!",
+    "message": "Dalamud ainda n?o foi atualizado para a sua vers?o atual do jogo.\nIsto �� comum ap��s atualiza??es, ent?o, por favor, seja paciente ou pergunte no discord por atualiza??es!",
     "description": "SettingsControl.EnableHooksCheckBox_OnChecked"
   },
   "DalamudCompatCheckFailed": {
-    "message": "Não foi possível contactar o servidor para obter a versão atualmente compatível com o jogo. Isto pode significar que sua intelação do .NET é muito antiga.\nPor favor, verifique o Discord para mais informações.",
+    "message": "N?o foi poss��vel contactar o servidor para obter a vers?o atualmente compat��vel com o jogo. Isto pode significar que sua intela??o do .NET �� muito antiga.\nPor favor, verifique o Discord para mais informa??es.",
     "description": "SettingsControl.EnableHooksCheckBox_OnChecked"
   },
   "SteamFtToggleAutoStartWarning": {
@@ -124,19 +124,19 @@
     "description": "SettingsControl.IsFreeTrialCheckbox_OnClick"
   },
   "IntegrityCheckImpossible": {
-    "message": "Ainda não há nenhum relatório de referência para esta versão do jogo. Por favor, tente novamente mais tarde.",
+    "message": "Ainda n?o h�� nenhum relat��rio de refer��ncia para esta vers?o do jogo. Por favor, tente novamente mais tarde.",
     "description": "<>c__DisplayClass20_1.<RunIntegrityCheck_OnClick>b__4"
   },
   "IntegrityCheckNetworkError": {
-    "message": "Falha ao baixar arquivos de referência para verificação de integridade. Verifique sua conexão com a internet e tente novamente.",
+    "message": "Falha ao baixar arquivos de refer��ncia para verifica??o de integridade. Verifique sua conex?o com a internet e tente novamente.",
     "description": "<>c__DisplayClass20_1.<RunIntegrityCheck_OnClick>b__4"
   },
   "IntegrityCheckFailed": {
-    "message": "Alguns arquivos do jogo parecem ter sido modificados ou corrompidos. \n\nSe você usar TexTools mods, este é um resultado esperado.\n\nSe você não usa mods, clique com o botão direito em \"Login\" na página inicial do XIVLauncher e escolha \"Reparar jogo\".",
+    "message": "Alguns arquivos do jogo parecem ter sido modificados ou corrompidos. \n\nSe voc�� usar TexTools mods, este �� um resultado esperado.\n\nSe voc�� n?o usa mods, clique com o bot?o direito em \"Login\" na p��gina inicial do XIVLauncher e escolha \"Reparar jogo\".",
     "description": "<>c__DisplayClass20_1.<RunIntegrityCheck_OnClick>b__4"
   },
   "IntegrityCheckValid": {
-    "message": "Sua instalação do jogo parece ser válida.",
+    "message": "Sua instala??o do jogo parece ser v��lida.",
     "description": "<>c__DisplayClass20_1.<RunIntegrityCheck_OnClick>b__4"
   },
   "AccountSwitcherSetProfilePic": {
@@ -144,7 +144,7 @@
     "description": "AccountSwitcherViewModel.SetupLoc"
   },
   "AccountSwitcherCreateShortcut": {
-    "message": "Criar atalho na área de trabalho",
+    "message": "Criar atalho na ��rea de trabalho",
     "description": "AccountSwitcherViewModel.SetupLoc"
   },
   "Remove": {
@@ -152,7 +152,7 @@
     "description": "AccountSwitcherViewModel.SetupLoc"
   },
   "AccountSwitcherDontSavePassword": {
-    "message": "Não salvar a senha",
+    "message": "N?o salvar a senha",
     "description": "AccountSwitcherViewModel.SetupLoc"
   },
   "AdvancedSettings": {
@@ -172,11 +172,11 @@
     "description": "AdvancedSettingsViewModel..ctor"
   },
   "ExitLauncherAfterGameExitLoc": {
-    "message": "Sair do XIVLauncher após sair do jogo",
+    "message": "Sair do XIVLauncher ap��s sair do jogo",
     "description": "AdvancedSettingsViewModel..ctor"
   },
   "TreatNonZeroExitCodeAsFailureLoc": {
-    "message": "Tratar código de saída do jogo diferente de zero como falha",
+    "message": "Tratar c��digo de sa��da do jogo diferente de zero como falha",
     "description": "AdvancedSettingsViewModel..ctor"
   },
   "ForceNorthAmerica": {
@@ -184,15 +184,15 @@
     "description": "AdvancedSettingsViewModel..ctor"
   },
   "UpdateNotice": {
-    "message": "O XIVLauncher foi atualizado para a versão {0}.",
+    "message": "O XIVLauncher foi atualizado para a vers?o {0}.",
     "description": "ChangeLogWindowViewModel.SetupLoc"
   },
   "ChangelogLoading": {
-    "message": "Carregando lista de mudanças...",
+    "message": "Carregando lista de mudan?as...",
     "description": "ChangeLogWindowViewModel.SetupLoc"
   },
   "ChangelogLoadingError": {
-    "message": "Não foi possível carregar o changelog. Por favor, verifique o GitHub ou Discord!",
+    "message": "N?o foi poss��vel carregar o changelog. Por favor, verifique o GitHub ou Discord!",
     "description": "ChangeLogWindowViewModel.SetupLoc"
   },
   "JoinDiscord": {
@@ -204,11 +204,11 @@
     "description": "ChangeLogWindowViewModel.SetupLoc"
   },
   "EmailInfo": {
-    "message": "XIVLauncher é gratuito e um software de código aberto - ele não usa quaisquer ferramentas de telemetria ou análise para coletar seus dados, mas nos ajudaria muito se você enviasse um e-mail curto para nós informando qual sistema operacional você usa, por que você usa o XIVLauncher e, se necessário, qualquer crítica ou coisa que possamos melhorar. Seu e-mail será excluído imediatamente após a avaliação e eu jamais entrarei em contato com você.\n\nMuito obrigado por usar o XIVLauncher!",
+    "message": "XIVLauncher �� gratuito e um software de c��digo aberto - ele n?o usa quaisquer ferramentas de telemetria ou an��lise para coletar seus dados, mas nos ajudaria muito se voc�� enviasse um e-mail curto para n��s informando qual sistema operacional voc�� usa, por que voc�� usa o XIVLauncher e, se necess��rio, qualquer cr��tica ou coisa que possamos melhorar. Seu e-mail ser�� exclu��do imediatamente ap��s a avalia??o e eu jamais entrarei em contato com voc��.\n\nMuito obrigado por usar o XIVLauncher!",
     "description": "ChangeLogWindowViewModel.SetupLoc"
   },
   "ChangelogThanks": {
-    "message": "XIVLauncher é um software gratuito, de código aberto suportado por uma variedade de pessoas de todo o mundo.\nObrigado por ficar conosco!",
+    "message": "XIVLauncher �� um software gratuito, de c��digo aberto suportado por uma variedade de pessoas de todo o mundo.\nObrigado por ficar conosco!",
     "description": "ChangeLogWindowViewModel.SetupLoc"
   },
   "ChatChannelSetupTitle": {
@@ -216,11 +216,11 @@
     "description": "ChatChannelSetupViewModel.SetupLoc"
   },
   "ChatChannelSetupDescription": {
-    "message": "Por favor, indique se o XIVLauncher deve postar em um canal em um servidor ou para um usuário em DMs, \ne seus respectivos IDs.",
+    "message": "Por favor, indique se o XIVLauncher deve postar em um canal em um servidor ou para um usu��rio em DMs, \ne seus respectivos IDs.",
     "description": "ChatChannelSetupViewModel.SetupLoc"
   },
   "HowToHint": {
-    "message": "Como faço para configurar isto?",
+    "message": "Como fa?o para configurar isto?",
     "description": "ChatChannelSetupViewModel.SetupLoc"
   },
   "StartOfficialLauncher": {
@@ -228,7 +228,7 @@
     "description": "CustomMessageBoxViewModel.SetupLoc"
   },
   "OpenIntegrityReport": {
-    "message": "Abrir Relatório de Integridade",
+    "message": "Abrir Relat��rio de Integridade",
     "description": "CustomMessageBoxViewModel.SetupLoc"
   },
   "OpenFaq": {
@@ -244,7 +244,7 @@
     "description": "CustomMessageBoxViewModel.SetupLoc"
   },
   "No": {
-    "message": "_Não",
+    "message": "_N?o",
     "description": "CustomMessageBoxViewModel.SetupLoc"
   },
   "Cancel": {
@@ -268,35 +268,35 @@
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "FirstTimeSteamCheckBox": {
-    "message": "Habilitar integração com o Steam",
+    "message": "Habilitar integra??o com o Steam",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "ChooseDirectXFTS": {
-    "message": "Por favor, selecione qual versão do DirectX deseja usar.",
+    "message": "Por favor, selecione qual vers?o do DirectX deseja usar.",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "DirectX9NoticeFTS": {
-    "message": "O modo DirectX 9 não é mais suportado. O jogo ainda vai iniciar, mas você não obterá suporte da Square Enix para quaisquer problemas técnicos. \nQuaisquer funções adicionais do XIVLauncher como Rich Presence e o Dalamud não funcionarão.",
+    "message": "O modo DirectX 9 n?o �� mais suportado. O jogo ainda vai iniciar, mas voc�� n?o obter�� suporte da Square Enix para quaisquer problemas t��cnicos. \nQuaisquer fun??es adicionais do XIVLauncher como Rich Presence e o Dalamud n?o funcionar?o.",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "ChooseLanguageFTS": {
-    "message": "Por favor, selecione em qual idioma você deseja carregar o jogo.",
+    "message": "Por favor, selecione em qual idioma voc�� deseja carregar o jogo.",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "FirstTimeActLaunch": {
-    "message": "O Advanced Combat Tracker está instalado no seu computador.\nDeseja iniciá-lo automaticamente ao iniciar o jogo?",
+    "message": "O Advanced Combat Tracker est�� instalado no seu computador.\nDeseja inici��-lo automaticamente ao iniciar o jogo?",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "FirstTimeActLaunchCheckBox": {
-    "message": "Habilitar inicialização automática do ACT",
+    "message": "Habilitar inicializa??o autom��tica do ACT",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "Next": {
-    "message": "Próximo",
+    "message": "Pr��ximo",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "FirstTimeDalamudNotice": {
-    "message": "Deseja ativar as funções o Dalamud?\nIsso adicionará algumas funcionalidades extras em seu jogo, tais como filtragem de chat e notificações do Discord para mensagens recebidas ou do Duty Finder.\n\nPara configurar estas opções, use o Menu de Configurações do XIVLauncher e navegue até a Dalamud. \nAtivar isso, contudo, pode causar um falso-positivo em seu antivírus.\nFavor verificar as configurações do seu antivírus e adicionar as exclusões necessárias se você tiver problemas.",
+    "message": "Deseja ativar as fun??es o Dalamud?\nIsso adicionar�� algumas funcionalidades extras em seu jogo, tais como filtragem de chat e notifica??es do Discord para mensagens recebidas ou do Duty Finder.\n\nPara configurar estas op??es, use o Menu de Configura??es do XIVLauncher e navegue at�� a Dalamud. \nAtivar isso, contudo, pode causar um falso-positivo em seu antiv��rus.\nFavor verificar as configura??es do seu antiv��rus e adicionar as exclus?es necess��rias se voc�� tiver problemas.",
     "description": "FirstTimeSetupViewModel.SetupLoc"
   },
   "FirstTimeDalamudCheckBox": {
@@ -340,15 +340,15 @@
     "description": "GameRepairProgressWindowViewModel.SetupLoc"
   },
   "GenericAddonSetupTitle": {
-    "message": "Configurar início automático",
+    "message": "Configurar in��cio autom��tico",
     "description": "GenericAddonSetupWindowViewModel.SetupLoc"
   },
   "GenericAddonSetupDescription": {
-    "message": "Selecione o aplicativo que deve ser iniciado, quaisquer parâmetros adicionais, e\nse deve ser executado como administrador.",
+    "message": "Selecione o aplicativo que deve ser iniciado, quaisquer parametros adicionais, e\nse deve ser executado como administrador.",
     "description": "GenericAddonSetupWindowViewModel.SetupLoc"
   },
   "CommandLineParameters": {
-    "message": "Parâmetros de linha de comando",
+    "message": "Parametros de linha de comando",
     "description": "GenericAddonSetupWindowViewModel.SetupLoc"
   },
   "RunAsAdminLoc": {
@@ -360,15 +360,15 @@
     "description": "GenericAddonSetupWindowViewModel.SetupLoc"
   },
   "KillAfterCloseLoc": {
-    "message": "Encerrar após o fechamento do jogo",
+    "message": "Encerrar ap��s o fechamento do jogo",
     "description": "GenericAddonSetupWindowViewModel.SetupLoc"
   },
   "IntegrityCheckRunning": {
-    "message": "Executando verificação de integridade...",
+    "message": "Executando verifica??o de integridade...",
     "description": "IntegrityCheckProgressWindowViewModel.SetupLoc"
   },
   "PatchManDlFailure": {
-    "message": "XIVLauncher não pôde verificar os arquivos do jogo baixados. Por favor reinicie e tente novamente.\n\nIsto geralmente indica um problema com a sua conexão com a internet.\nSe este erro ocorrer novamente, tente usar uma VPN definida para o Japão.\n\nContexto: {0}\n{1}",
+    "message": "XIVLauncher n?o p?de verificar os arquivos do jogo baixados. Por favor reinicie e tente novamente.\n\nIsto geralmente indica um problema com a sua conex?o com a internet.\nSe este erro ocorrer novamente, tente usar uma VPN definida para o Jap?o.\n\nContexto: {0}\n{1}",
     "description": "MainWindowViewModel.PatcherOnFail"
   },
   "PatchInstallerInstallFailed": {
@@ -376,7 +376,7 @@
     "description": "MainWindowViewModel.InstallerOnFail"
   },
   "LoginBoxUsername": {
-    "message": "Nome de usuário",
+    "message": "Nome de usu��rio",
     "description": "MainWindowViewModel.SetupLoc"
   },
   "LoginBoxPassword": {
@@ -388,11 +388,11 @@
     "description": "MainWindowViewModel.SetupLoc"
   },
   "LoginBoxOtp": {
-    "message": "Usar senha de uso único",
+    "message": "Usar senha de uso ��nico",
     "description": "MainWindowViewModel.SetupLoc"
   },
   "LoginBoxSteam": {
-    "message": "Usar conta de serviço Steam",
+    "message": "Usar conta de servi?o Steam",
     "description": "MainWindowViewModel.SetupLoc"
   },
   "LoginBoxLogin": {
@@ -428,7 +428,7 @@
     "description": "MainWindowViewModel.SetupLoc"
   },
   "LoginBoxWaitingForMaint": {
-    "message": "Aguardando a manutenção terminar...",
+    "message": "Aguardando a manuten??o terminar...",
     "description": "MainWindowViewModel.SetupLoc"
   },
   "CancelWithShortcut": {
@@ -440,7 +440,7 @@
     "description": "MainWindowViewModel.SetupLoc"
   },
   "Settings": {
-    "message": "Configurações",
+    "message": "Configura??es",
     "description": "MainWindowViewModel.SetupLoc"
   },
   "WorldStatus": {
@@ -448,71 +448,71 @@
     "description": "MainWindowViewModel.SetupLoc"
   },
   "MaintenanceQueue": {
-    "message": "Aguarde a manutenção terminar",
+    "message": "Aguarde a manuten??o terminar",
     "description": "MainWindowViewModel.SetupLoc"
   },
   "LoadingDialogIsLoggingIn": {
-    "message": "Iniciando sessão...",
+    "message": "Iniciando sess?o...",
     "description": "MainWindowViewModel.SetupLoc"
   },
   "DuplicateOtpAfterSuccess": {
-    "message": "Este OTP já foi usado.\nPode levar até 30 segundos para receber um novo.",
+    "message": "Este OTP j�� foi usado.\nPode levar at�� 30 segundos para receber um novo.",
     "description": "MainWindowViewModel.<Login>b__21_0"
   },
   "GameRepairProcessExitRequired1": {
-    "message": "Feche a seguinte aplicação para reparar o jogo.",
+    "message": "Feche a seguinte aplica??o para reparar o jogo.",
     "description": "<>c.<RepairGame>b__25_1"
   },
   "GameRepairProcessExitRequiredPlural": {
-    "message": "Feche as seguintes aplicações para reparar o jogo.",
+    "message": "Feche as seguintes aplica??es para reparar o jogo.",
     "description": "<>c.<RepairGame>b__25_1"
   },
   "GameUpdateExitRequired1": {
-    "message": "Feche a seguinte aplicação para atualizar o jogo.",
+    "message": "Feche a seguinte aplica??o para atualizar o jogo.",
     "description": "<>c.<TryHandlePatchAsync>b__34_2"
   },
   "GameUpdateExitRequiredPlural": {
-    "message": "Feche as seguintes aplicações para atualizar o jogo.",
+    "message": "Feche as seguintes aplica??es para atualizar o jogo.",
     "description": "<>c.<TryHandlePatchAsync>b__34_2"
   },
   "AutoLoginIntro": {
-    "message": "Você está ativando o Login automático.\nIsto significa que o XIVLauncher sempre fará login com a conta atual e você não verá esta janela.\n\nPara alterar configurações e contas, você precisa segurar o botão shift no seu teclado enquanto clica no ícone do XIVLauncher.",
+    "message": "Voc�� est�� ativando o Login autom��tico.\nIsto significa que o XIVLauncher sempre far�� login com a conta atual e voc�� n?o ver�� esta janela.\n\nPara alterar configura??es e contas, voc�� precisa segurar o bot?o shift no seu teclado enquanto clica no ��cone do XIVLauncher.",
     "description": "<>c__DisplayClass19_0.<GetLoginFunc>b__0"
   },
   "GameIsOpenRepairError": {
-    "message": "O jogo e/ou o launcher oficial estão abertos. O XIVLauncher não pode fazer o reparo do jogo nesse caso.\nFeche-os e tente novamente.",
+    "message": "O jogo e/ou o launcher oficial est?o abertos. O XIVLauncher n?o pode fazer o reparo do jogo nesse caso.\nFeche-os e tente novamente.",
     "description": "<>c__DisplayClass19_0.<GetLoginFunc>b__0"
   },
   "GameRepairDisclaimer": {
-    "message": "XIVLauncher tentará encontrar arquivos de jogos corrompidos e repará-los.\nSe você usar quaisquer mods de TexTools, isso substituirá todos eles e restaurará o jogo ao seu estado inicial.\n\nVocê quer continuar?",
+    "message": "XIVLauncher tentar�� encontrar arquivos de jogos corrompidos e repar��-los.\nSe voc�� usar quaisquer mods de TexTools, isso substituir�� todos eles e restaurar�� o jogo ao seu estado inicial.\n\nVoc�� quer continuar?",
     "description": "<>c__DisplayClass19_0.<GetLoginFunc>b__0"
   },
   "GateUnreachable": {
-    "message": "Não foi possível acessar os servidores de login. Isto geralmente indica que o jogo está em manutenção, ou que sua conexão com os servidores de login é instável.\n\nPor favor, tente novamente mais tarde.",
+    "message": "N?o foi poss��vel acessar os servidores de login. Isto geralmente indica que o jogo est�� em manuten??o, ou que sua conex?o com os servidores de login �� inst��vel.\n\nPor favor, tente novamente mais tarde.",
     "description": "<CheckGateStatus>d__22.MoveNext"
   },
   "GateClosed": {
-    "message": "No momento o jogo se encontra em manutenção. Por favor, tente de novo depois ou verifique as fontes oficiais para mais informações.",
+    "message": "No momento o jogo se encontra em manuten??o. Por favor, tente de novo depois ou verifique as fontes oficiais para mais informa??es.",
     "description": "<CheckGateStatus>d__22.MoveNext"
   },
   "CheckBootVersionError": {
-    "message": "XIVLauncher não foi capaz de verificar a versão de inicialização para a instalação do jogo selecionada. Isso pode acontecer se uma manutenção estiver em andamento ou se sua conexão com o servidor de verificação de versão não estiver disponível. Por favor, reporte este erro se você é capaz de entrar com o launcher oficial, mas não com o XIVLauncher.",
+    "message": "XIVLauncher n?o foi capaz de verificar a vers?o de inicializa??o para a instala??o do jogo selecionada. Isso pode acontecer se uma manuten??o estiver em andamento ou se sua conex?o com o servidor de verifica??o de vers?o n?o estiver dispon��vel. Por favor, reporte este erro se voc�� �� capaz de entrar com o launcher oficial, mas n?o com o XIVLauncher.",
     "description": "<HandleBootCheck>d__33.MoveNext"
   },
   "BootPatchFailure": {
-    "message": "Não foi possível fazer o patch da boot.",
+    "message": "N?o foi poss��vel fazer o patch da boot.",
     "description": "<HandleBootCheck>d__33.MoveNext"
   },
   "KillswitchText": {
-    "message": "XIVLauncher não pode iniciar o jogo no momento, pois houve alterações no processo de login durante uma atualização recente.\nPrecisamos nos ajustar a essas mudanças e verificar que elas sejam seguras para então reabilitarmos o launcher. Por favor, tente de novo mais tarde.\n\nDesculpe-nos pelas circunstâncias.\n\nVocê pode utilizar o botão \"Launcher Oficial\" abaixo para iniciar o launcher oficial.\n",
+    "message": "XIVLauncher n?o pode iniciar o jogo no momento, pois houve altera??es no processo de login durante uma atualiza??o recente.\nPrecisamos nos ajustar a essas mudan?as e verificar que elas sejam seguras para ent?o reabilitarmos o launcher. Por favor, tente de novo mais tarde.\n\nDesculpe-nos pelas circunstancias.\n\nVoc�� pode utilizar o bot?o \"Launcher Oficial\" abaixo para iniciar o launcher oficial.\n",
     "description": "<Login>d__21.MoveNext"
   },
   "EmptyUsernameError": {
-    "message": "Por favor, insira um nome de usuário.",
+    "message": "Por favor, insira um nome de usu��rio.",
     "description": "<Login>d__21.MoveNext"
   },
   "EmailUsernameError": {
-    "message": "Por favor informe o seu nome da usuário da SE, não o seu endereço de e-mail.",
+    "message": "Por favor informe o seu nome da usu��rio da SE, n?o o seu endere?o de e-mail.",
     "description": "<Login>d__21.MoveNext"
   },
   "EmptyPasswordError": {
@@ -520,11 +520,11 @@
     "description": "<Login>d__21.MoveNext"
   },
   "UidCacheInstallError": {
-    "message": "Você habilitou o cache UID nas configurações do patcher.\nEsta configuração não permite que você reinstale o FFXIV.\n\nCaso você queira reinstalar o jogo, por favor desabilite-o primeiro.",
+    "message": "Voc�� habilitou o cache UID nas configura??es do patcher.\nEsta configura??o n?o permite que voc�� reinstale o FFXIV.\n\nCaso voc�� queira reinstalar o jogo, por favor desabilite-o primeiro.",
     "description": "<Login>d__21.MoveNext"
   },
   "GameRepairSuccess0": {
-    "message": "Todos os arquivos do jogo parecem ser válidos.",
+    "message": "Todos os arquivos do jogo parecem ser v��lidos.",
     "description": "<RepairGame>d__25.MoveNext"
   },
   "GameRepairSuccess1": {
@@ -556,7 +556,7 @@
     "description": "<RepairGame>d__25.MoveNext"
   },
   "NoVersionReferenceError": {
-    "message": "A versão do jogo em que você está não pode ser reparada pelo XIVLauncher ainda, pois informações de referência ainda não estão disponíveis.\nPor favor, tente novamente mais tarde.",
+    "message": "A vers?o do jogo em que voc�� est�� n?o pode ser reparada pelo XIVLauncher ainda, pois informa??es de refer��ncia ainda n?o est?o dispon��veis.\nPor favor, tente novamente mais tarde.",
     "description": "<RepairGame>d__25.MoveNext"
   },
   "GameRepairSuccess_TryAgain": {
@@ -564,11 +564,11 @@
     "description": "<RepairGame>d__25.MoveNext"
   },
   "GameRepairError": {
-    "message": "Ocorreu um erro ao reparar os arquivos do jogo.\nTalvez você precise reinstalar o jogo.",
+    "message": "Ocorreu um erro ao reparar os arquivos do jogo.\nTalvez voc�� precise reinstalar o jogo.",
     "description": "<RepairGame>d__25.MoveNext"
   },
   "PatcherAlreadyInProgress": {
-    "message": "O XIVLauncher já está modificando seu jogo em outra instância. Por favor, verifique se o XIVLauncher ainda está aberto.",
+    "message": "O XIVLauncher j�� est�� modificando seu jogo em outra instancia. Por favor, verifique se o XIVLauncher ainda est�� aberto.",
     "description": "<RepairGame>d__25.MoveNext"
   },
   "DalamudVc2019RedistError": {
@@ -576,7 +576,7 @@
     "description": "<StartGameAndAddon>d__29.MoveNext"
   },
   "DalamudArchError": {
-    "message": "Dalamud não pode ser executado pela arquitetura do seu computador. Certifique-se de que você está executando uma versão 64-bit do Windows.\nSe estiver usando o Windows on ARM, certifique-se de que a Emulação-x64 está ativada para XIVLauncher.",
+    "message": "Dalamud n?o pode ser executado pela arquitetura do seu computador. Certifique-se de que voc�� est�� executando uma vers?o 64-bit do Windows.\nSe estiver usando o Windows on ARM, certifique-se de que a Emula??o-x64 est�� ativada para XIVLauncher.",
     "description": "<StartGameAndAddon>d__29.MoveNext"
   },
   "DalamudEnsurementError": {
@@ -584,27 +584,27 @@
     "description": "<StartGameAndAddon>d__29.MoveNext"
   },
   "AddonLoadError": {
-    "message": "Isto pode ser causado pelo seu antivírus. Por favor, verifique os seus registros e adicione quaisquer exclusões necessárias.",
+    "message": "Isto pode ser causado pelo seu antiv��rus. Por favor, verifique os seus registros e adicione quaisquer exclus?es necess��rias.",
     "description": "<StartGameAndAddon>d__29.MoveNext"
   },
   "GameIsOpenError": {
-    "message": "O jogo e/ou o launcher oficial estão abertos. O XIVLauncher não pode fazer o patch do jogo nesse caso.\nFeche o launcher oficial e tente novamente.",
+    "message": "O jogo e/ou o launcher oficial est?o abertos. O XIVLauncher n?o pode fazer o patch do jogo nesse caso.\nFeche o launcher oficial e tente novamente.",
     "description": "<TryHandlePatchAsync>d__34.MoveNext"
   },
   "PatchManNoInstaller": {
-    "message": "O instalador de patches não pôde ser iniciado corretamente.\n{0}\n\nSe você negou o acesso a ele, por favor, tente novamente. Se este problema persistir, entre em contato conosco por meio do Discord.",
+    "message": "O instalador de patches n?o p?de ser iniciado corretamente.\n{0}\n\nSe voc�� negou o acesso a ele, por favor, tente novamente. Se este problema persistir, entre em contato conosco por meio do Discord.",
     "description": "<TryHandlePatchAsync>d__34.MoveNext"
   },
   "FreeSpaceError": {
-    "message": "Não há espaço suficiente em disco para baixar as atualizações.\n\nVocê pode alterar o local de download das atualizações nas configurações.\n\nNecessário:{0}\nLivre:{1}",
+    "message": "N?o h�� espa?o suficiente em disco para baixar as atualiza??es.\n\nVoc�� pode alterar o local de download das atualiza??es nas configura??es.\n\nNecess��rio:{0}\nLivre:{1}",
     "description": "<TryHandlePatchAsync>d__34.MoveNext"
   },
   "FreeSpaceErrorAll": {
-    "message": "Não há espaço suficiente em disco para baixar as atualizações.\n\nVocê pode alterar o local de download das atualizações nas configurações.\n\nNecessário:{0}\nLivre:{1}",
+    "message": "N?o h�� espa?o suficiente em disco para baixar as atualiza??es.\n\nVoc�� pode alterar o local de download das atualiza??es nas configura??es.\n\nNecess��rio:{0}\nLivre:{1}",
     "description": "<TryHandlePatchAsync>d__34.MoveNext"
   },
   "FreeSpaceGameError": {
-    "message": "Não há espaço suficiente em disco para instalar as atualizações.\n\nVocê pode alterar o local de instalação do jogo nas configurações.\n\nNecessário:{0}\nLivre:{1}",
+    "message": "N?o h�� espa?o suficiente em disco para instalar as atualiza??es.\n\nVoc�� pode alterar o local de instala??o do jogo nas configura??es.\n\nNecess��rio:{0}\nLivre:{1}",
     "description": "<TryHandlePatchAsync>d__34.MoveNext"
   },
   "LoginNoOauthTitle": {
@@ -612,15 +612,15 @@
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginIoErrorSummary": {
-    "message": "Não foi possível localizar os arquivos de dados do jogo.",
+    "message": "N?o foi poss��vel localizar os arquivos de dados do jogo.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginIoErrorActionable": {
-    "message": "Isto pode significar que o caminho do jogo definido em XIVLauncher não seja predefinido, por exemplo, em um drive desconectado ou armazenamento de rede. Por favor, verifique o caminho do jogo nas configurações XIVLauncher.",
+    "message": "Isto pode significar que o caminho do jogo definido em XIVLauncher n?o seja predefinido, por exemplo, em um drive desconectado ou armazenamento de rede. Por favor, verifique o caminho do jogo nas configura??es XIVLauncher.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginInvalidVersionFiles": {
-    "message": "As informações de versionamento não foram lidas dos arquivos do seu jogo.\n\nÉ necessário reinstalar ou reparar os arquivos do jogo. Clique com o botão direito no botão de login no XIVLauncher e escolha a opção \"Reparar Jogo\".",
+    "message": "As informa??es de versionamento n?o foram lidas dos arquivos do seu jogo.\n\n�� necess��rio reinstalar ou reparar os arquivos do jogo. Clique com o bot?o direito no bot?o de login no XIVLauncher e escolha a op??o \"Reparar Jogo\".",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginSteamNullTicket": {
@@ -636,39 +636,39 @@
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginSteamLinkNeeded": {
-    "message": "Antes de iniciar o jogo com esta conta, você precisa vinculá-lo à sua conta Steam com o launcher oficial.\nPor favor, vincule suas contas e tente novamente. Você pode fazer isso clicando no botão \"Launcher Oficial\".",
+    "message": "Antes de iniciar o jogo com esta conta, voc�� precisa vincul��-lo �� sua conta Steam com o launcher oficial.\nPor favor, vincule suas contas e tente novamente. Voc�� pode fazer isso clicando no bot?o \"Launcher Oficial\".",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginGenericError": {
-    "message": "Não foi possível entrar em sua conta SE.\nPor favor, verifique seu nome de usuário e senha.",
+    "message": "N?o foi poss��vel entrar em sua conta SE.\nPor favor, verifique seu nome de usu��rio e senha.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginGenericErrorCheckOtpUse": {
-    "message": "Se você estiver usando OTP, marque a opção \"{0}\" e tente novamente.",
+    "message": "Se voc�� estiver usando OTP, marque a op??o \"{0}\" e tente novamente.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginGenericErrorCheckOtp": {
-    "message": "Verifique se o relógio do dispositivo OTP está correto.\nSe você fez o login recentemente, tente fazer o login novamente em 30 segundos.",
+    "message": "Verifique se o rel��gio do dispositivo OTP est�� correto.\nSe voc�� fez o login recentemente, tente fazer o login novamente em 30 segundos.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginWebExceptionContent": {
-    "message": "XIVLauncher não pode estabelecer uma conexão com os servidores do jogo.\n\nIsto pode ser um problema temporário ou um problema com a sua conexão de internet. Por favor, tente novamente mais tarde.",
+    "message": "XIVLauncher n?o pode estabelecer uma conex?o com os servidores do jogo.\n\nIsto pode ser um problema tempor��rio ou um problema com a sua conex?o de internet. Por favor, tente novamente mais tarde.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginGenericServerIssue": {
-    "message": "O servidor enviou uma resposta inválida. Isto é pode ocorrer durante quedas no serviço ou quando os servidores estão sob carga pesada.\nAguarde um minuto e tente novamente ou tente usar o launcher oficial.\n\nVocê pode saber mais sobre falhas de serviço na Lodestone.",
+    "message": "O servidor enviou uma resposta inv��lida. Isto �� pode ocorrer durante quedas no servi?o ou quando os servidores est?o sob carga pesada.\nAguarde um minuto e tente novamente ou tente usar o launcher oficial.\n\nVoc�� pode saber mais sobre falhas de servi?o na Lodestone.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "CheckLoginInfoNotAdditionally": {
-    "message": "Por favor, verifique suas informações de login ou tente novamente.",
+    "message": "Por favor, verifique suas informa??es de login ou tente novamente.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginNoOauthAutologinHint": {
-    "message": "\n\nO Login automático foi desativado.",
+    "message": "\n\nO Login autom��tico foi desativado.",
     "description": "<TryLoginToGame>d__23.MoveNext"
   },
   "LoginNoServiceMessage": {
-    "message": "Esta conta não é elegível para jogar o jogo. Por favor, certifique-se de que você possui uma assinatura ativa.\n\nSe você comprou o jogo na Steam, marque a caixa \"Utilizar serviço de conta Steam\" ao fazer login.\nCaso o login automático esteja ativo, mantenha shift segurado enquanto acessa as configurações.",
+    "message": "Esta conta n?o �� eleg��vel para jogar o jogo. Por favor, certifique-se de que voc�� possui uma assinatura ativa.\n\nSe voc�� comprou o jogo na Steam, marque a caixa \"Utilizar servi?o de conta Steam\" ao fazer login.\nCaso o login autom��tico esteja ativo, mantenha shift segurado enquanto acessa as configura??es.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LoginAcceptTermsMessage": {
@@ -676,23 +676,23 @@
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "EverythingIsFuckedMessage": {
-    "message": "Alguns arquivos essenciais do jogo foram modificados/corrompidos por alguma ferramenta de terceiro, impossibilitando a atualização e até mesmo a abertura do jogo.\nSerá necessário reinstalar o jogo por completo para poder continuar.\n\nCaso isso continue acontecendo, entre em contato conosco através do nosso servidor do Discord.",
+    "message": "Alguns arquivos essenciais do jogo foram modificados/corrompidos por alguma ferramenta de terceiro, impossibilitando a atualiza??o e at�� mesmo a abertura do jogo.\nSer�� necess��rio reinstalar o jogo por completo para poder continuar.\n\nCaso isso continue acontecendo, entre em contato conosco atrav��s do nosso servidor do Discord.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LoginRepairResponseIsNotNeedsPatchGame": {
-    "message": "O servidor enviou uma resposta incorreta - o reparo não pode prosseguir.",
+    "message": "O servidor enviou uma resposta incorreta - o reparo n?o pode prosseguir.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "PatchInstallDisclaimer": {
-    "message": "Uma nova atualização foi encontrada que precisa ser instalada antes que você possa jogar.\nVocê deseja que o XIVLauncher o instale?",
+    "message": "Uma nova atualiza??o foi encontrada que precisa ser instalada antes que voc�� possa jogar.\nVoc�� deseja que o XIVLauncher o instale?",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LoginNoStartOk": {
-    "message": "Uma verificação de atualização foi executada e todas as atualizações pendentes foram instaladas.",
+    "message": "Uma verifica??o de atualiza??o foi executada e todas as atualiza??es pendentes foram instaladas.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LaunchGameNonZeroExitCode": {
-    "message": "Parece que o jogo fechou com um erro fatal. Você quer reiniciar o jogo?\n\nExit code: 0x{0:X8}",
+    "message": "Parece que o jogo fechou com um erro fatal. Voc�� quer reiniciar o jogo?\n\nExit code: 0x{0:X8}",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LaunchGameRelaunch": {
@@ -704,7 +704,7 @@
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LaunchGameDoNotAskAgain": {
-    "message": "_Não perguntar de novo",
+    "message": "_N?o perguntar de novo",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LaunchGameRetry": {
@@ -712,23 +712,23 @@
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "MultiboxDeniedWarningSummary": {
-    "message": "Você não pode iniciar mais de duas instâncias do jogo por padrão.",
+    "message": "Voc�� n?o pode iniciar mais de duas instancias do jogo por padr?o.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "MultiboxDeniedWarningActionable": {
-    "message": "Por favor, verifique se há uma instância do jogo que não foi fechada corretamente. (Detectado: {0})",
+    "message": "Por favor, verifique se h�� uma instancia do jogo que n?o foi fechada corretamente. (Detectado: {0})",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "LaunchGameKillThenRetry": {
-    "message": "_Encerre à força e tente novamente",
+    "message": "_Encerre �� for?a e tente novamente",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "GameExitedPrematurelyErrorSummary": {
-    "message": "XIVLauncher não pôde iniciar o jogo corretamente.",
+    "message": "XIVLauncher n?o p?de iniciar o jogo corretamente.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "GameExitedPrematurelyErrorActionable": {
-    "message": "Isto pode ser um problema temporário. Por favor, tente reiniciar seu PC.\nA instalação do seu jogo é possivelmente inválida — repare sua instalação clicando com o botão direito no botão Login e escolhendo \"Reparar Jogo\".",
+    "message": "Isto pode ser um problema tempor��rio. Por favor, tente reiniciar seu PC.\nA instala??o do seu jogo �� possivelmente inv��lida �� repare sua instala??o clicando com o bot?o direito no bot?o Login e escolhendo \"Reparar Jogo\".",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "GameExitedPrematurelyErrorAV": {
@@ -736,19 +736,19 @@
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "BinaryNotPresentErrorSummary": {
-    "message": "Não foi possível encontrar o executável do jogo.",
+    "message": "N?o foi poss��vel encontrar o execut��vel do jogo.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "BinaryNotPresentErrorActionable": {
-    "message": "Isto pode ser causado pelo seu antivírus. Talvez você precise reinstalar o jogo.",
+    "message": "Isto pode ser causado pelo seu antiv��rus. Talvez voc�� precise reinstalar o jogo.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "MultipleErrors": {
-    "message": "Ocorreram vários erros.",
+    "message": "Ocorreram v��rios erros.",
     "description": "<TryProcessLoginResult>d__24.MoveNext"
   },
   "OtpInputPrompt": {
-    "message": "Por favor, insira sua senha de uso único.",
+    "message": "Por favor, insira sua senha de uso ��nico.",
     "description": "OtpInputDialogViewModel.SetupLoc"
   },
   "OtpOneClickHint": {
@@ -756,7 +756,7 @@
     "description": "OtpInputDialogViewModel.SetupLoc"
   },
   "OtpInputPromptBad": {
-    "message": "Insira uma chave OTP válida.\nEla tem 6 dígitos.",
+    "message": "Insira uma chave OTP v��lida.\nEla tem 6 d��gitos.",
     "description": "OtpInputDialogViewModel.SetupLoc"
   },
   "PasteButton": {
@@ -768,7 +768,7 @@
     "description": "PatchDownloadDialogViewModel.SetupLoc"
   },
   "PatchGeneralStatus": {
-    "message": "Fazendo {0} atualizações...",
+    "message": "Fazendo {0} atualiza??es...",
     "description": "PatchDownloadDialogViewModel.SetupLoc"
   },
   "PatchChecking": {
@@ -776,7 +776,7 @@
     "description": "PatchDownloadDialogViewModel.SetupLoc"
   },
   "PatchDone": {
-    "message": "Download concluído!",
+    "message": "Download conclu��do!",
     "description": "PatchDownloadDialogViewModel.SetupLoc"
   },
   "PatchInstalling": {
@@ -816,7 +816,7 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "SaveSettings": {
-    "message": "Salvar configurações",
+    "message": "Salvar configura??es",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "SettingsGame": {
@@ -824,15 +824,15 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "ChooseGamePath": {
-    "message": "Por favor, selecione a pasta na qual seu jogo está instalado.\nEla deve conter as pastas \"game\" e \"boot\".",
+    "message": "Por favor, selecione a pasta na qual seu jogo est�� instalado.\nEla deve conter as pastas \"game\" e \"boot\".",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "GamePathSafeguardRegionWarning": {
-    "message": "XIVLauncher não suporta as versões chinesas ou coreanas do jogo. Verifique se este caminho é de fato correspondente a versão internacional.",
+    "message": "XIVLauncher n?o suporta as vers?es chinesas ou coreanas do jogo. Verifique se este caminho �� de fato correspondente a vers?o internacional.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "OtpServerCheckBox": {
-    "message": "Ativar o supoorte às macros do aplicativo/OTP XL Authenticator",
+    "message": "Ativar o supoorte ��s macros do aplicativo/OTP XL Authenticator",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "OtpServerTooltip": {
@@ -848,11 +848,11 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "AdditionalArguments": {
-    "message": "Argumentos adicionais de inicialização",
+    "message": "Argumentos adicionais de inicializa??o",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "ChooseDpiAwareness": {
-    "message": "Detecção de DPI do jogo",
+    "message": "Detec??o de DPI do jogo",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "DpiAwarenessAware": {
@@ -860,19 +860,19 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "DpiAwarenessUnaware": {
-    "message": "Não detectar",
+    "message": "N?o detectar",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "ChooseDpiAwarenessHint": {
-    "message": "Se o dimensionamento do jogo parecer errado ao usar XIVLauncher, por favor tente alterar esta configuração.",
+    "message": "Se o dimensionamento do jogo parecer errado ao usar XIVLauncher, por favor tente alterar esta configura??o.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "RunIntegrityCheck": {
-    "message": "Executar verificação de integridade",
+    "message": "Executar verifica??o de integridade",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "RunIntegrityCheckTooltip": {
-    "message": "Executar verificação de integridade nos arquivos de jogo.",
+    "message": "Executar verifica??o de integridade nos arquivos de jogo.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "AutoStartSteam": {
@@ -884,31 +884,31 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "SettingsGameSettings": {
-    "message": "Configurações do jogo",
+    "message": "Configura??es do jogo",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "ChooseDirectX": {
-    "message": "Selecione qual versão DirectX deseja usar.",
+    "message": "Selecione qual vers?o DirectX deseja usar.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "DirectX9Notice": {
-    "message": "O modo DirectX 9 não é mais suportado. O jogo ainda vai iniciar, mas você não obterá suporte da\nSquare Enix para quaisquer problemas técnicos. Quaisquer funções adicionais do XIVLauncher como o Rich Presence e o\naddon no jogo não funcionarão.",
+    "message": "O modo DirectX 9 n?o �� mais suportado. O jogo ainda vai iniciar, mas voc�� n?o obter�� suporte da\nSquare Enix para quaisquer problemas t��cnicos. Quaisquer fun??es adicionais do XIVLauncher como o Rich Presence e o\naddon no jogo n?o funcionar?o.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "ChooseLanguage": {
-    "message": "Por favor, selecione com qual idioma você deseja carregar o jogo.",
+    "message": "Por favor, selecione com qual idioma voc�� deseja carregar o jogo.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "ChooseLauncherLanguage": {
-    "message": "Por favor selecione o idioma do launcher (requer reinicialização).",
+    "message": "Por favor selecione o idioma do launcher (requer reinicializa??o).",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "LauncherLanguageHelpCtaLoc": {
-    "message": "Encontrou algum erro? Você pode ajudar a traduzir o launcher! Basta clicar aqui!",
+    "message": "Encontrou algum erro? Voc�� pode ajudar a traduzir o launcher! Basta clicar aqui!",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "LauncherLanguageNotice": {
-    "message": "É necessário reiniciar para aplicar a configuração de idioma do launcher.",
+    "message": "�� necess��rio reiniciar para aplicar a configura??o de idioma do launcher.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "SettingsAutoLaunch": {
@@ -916,7 +916,7 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "AutoLaunchHint": {
-    "message": "Estas são aplicações que são iniciadas assim que o jogo começa.",
+    "message": "Estas s?o aplica??es que s?o iniciadas assim que o jogo come?a.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "AddNew": {
@@ -924,7 +924,7 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "AutoLaunchAddNewToolTip": {
-    "message": "Adicione uma nova entrada de início automático que permite iniciar qualquer programa.",
+    "message": "Adicione uma nova entrada de in��cio autom��tico que permite iniciar qualquer programa.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "SettingsInGame": {
@@ -932,11 +932,11 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonDescription": {
-    "message": "Estas opções afetam os recursos do XIVLauncher dentro do jogo fornecidos pelo Dalamud.\nEstes recursos serão automaticamente ativados se você estiver executando a versão do jogo em DirectX 11, se a versão do jogo for\ncompatível e se a caixa de seleção abaixo estiver marcada.",
+    "message": "Estas op??es afetam os recursos do XIVLauncher dentro do jogo fornecidos pelo Dalamud.\nEstes recursos ser?o automaticamente ativados se voc�� estiver executando a vers?o do jogo em DirectX 11, se a vers?o do jogo for\ncompat��vel e se a caixa de sele??o abaixo estiver marcada.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonCommandHint": {
-    "message": "Quando ativado, digite \"/xlhelp\" no jogo para ver outros comandos disponíveis.",
+    "message": "Quando ativado, digite \"/xlhelp\" no jogo para ver outros comandos dispon��veis.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonEnabledCheckBox": {
@@ -944,7 +944,7 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "ChatSettings": {
-    "message": "Configurações do Chat",
+    "message": "Configura??es do Chat",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "DiscordBotToken": {
@@ -956,11 +956,11 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonSetCfChannel": {
-    "message": "Configurar canal de notificação do Duty Finder",
+    "message": "Configurar canal de notifica??o do Duty Finder",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonSetRouletteChannel": {
-    "message": "Definir canal de notificação de Bônus de Roleta",
+    "message": "Definir canal de notifica??o de B?nus de Roleta",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonSetRetainerChannel": {
@@ -972,15 +972,15 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonChatDelayDescription": {
-    "message": "Verifique as mensagens enviadas recentemente para evitar duplicatas.\nIsto permite que vários usuários usem o mesmo canal como um log de chat.\nPor favor, defina um atraso apropriado em milissegundos abaixo (p. ex. 1000).",
+    "message": "Verifique as mensagens enviadas recentemente para evitar duplicatas.\nIsto permite que v��rios usu��rios usem o mesmo canal como um log de chat.\nPor favor, defina um atraso apropriado em milissegundos abaixo (p. ex. 1000).",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonInjectionDelayLoc": {
-    "message": "Atraso na Injeção de Addon",
+    "message": "Atraso na Inje??o de Addon",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonInjectionDelayDescriptionLoc": {
-    "message": "Atrasa a injeção do addon no jogo. Isso permite que você o esconda, por exemplo, do OBS e do Discord, pois eles vão se injetar antes que o mesmo faça.",
+    "message": "Atrasa a inje??o do addon no jogo. Isso permite que voc�� o esconda, por exemplo, do OBS e do Discord, pois eles v?o se injetar antes que o mesmo fa?a.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonLoadMethodLoc": {
@@ -992,27 +992,27 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonLoadMethodDllInjectLoc": {
-    "message": "Legado: versão antiga do sistema de injeção Dalamud que pode ser mais estável.",
+    "message": "Legado: vers?o antiga do sistema de inje??o Dalamud que pode ser mais est��vel.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonLoadMethodEntryPointDescriptionLoc": {
-    "message": "Este método usa a reescrita do Entry-Point para carregar Dalamud, que pode ser mais compatível com certos outros softwares, como ferramentas anti-vírus.",
+    "message": "Este m��todo usa a reescrita do Entry-Point para carregar Dalamud, que pode ser mais compat��vel com certos outros softwares, como ferramentas anti-v��rus.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "InGameAddonLoadMethodDllInjectDescriptionLoc": {
-    "message": "Este método carrega Dalamud via injeção de DLL, que pode ser mais estável em certos sistemas.",
+    "message": "Este m��todo carrega Dalamud via inje??o de DLL, que pode ser mais est��vel em certos sistemas.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "UniversalisHint": {
-    "message": "Dados do Market Board fornecidos da colaboração com Universalis.",
+    "message": "Dados do Market Board fornecidos da colabora??o com Universalis.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "UniversalisOptOut": {
-    "message": "Optar por não contribuir anonimamente para colaboração de informações do Market Board",
+    "message": "Optar por n?o contribuir anonimamente para colabora??o de informa??es do Market Board",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "PluginsDescriptionLoc": {
-    "message": "Estas são os plugins que estão atualmente disponíveis e instalados no seu PC.",
+    "message": "Estas s?o os plugins que est?o atualmente dispon��veis e instalados no seu PC.",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "Toggle": {
@@ -1028,15 +1028,15 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "SettingsPatching": {
-    "message": "Atualizações",
+    "message": "Atualiza??es",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "AskBeforePatch": {
-    "message": "Perguntar antes de instalar uma atualização do jogo",
+    "message": "Perguntar antes de instalar uma atualiza??o do jogo",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "PatchPath": {
-    "message": "Pasta de Download das Atualizações",
+    "message": "Pasta de Download das Atualiza??es",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "PatchSpeedLimit": {
@@ -1044,11 +1044,11 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "KeepPatches": {
-    "message": "Manter atualizações baixados para reinstalações futuras",
+    "message": "Manter atualiza??es baixados para reinstala??es futuras",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "PatchAcquisitionMethod": {
-    "message": "Escolha o método usado para baixar os patches. Recomendamos \"ARIA(HTTP)\".",
+    "message": "Escolha o m��todo usado para baixar os patches. Recomendamos \"ARIA(HTTP)\".",
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "SettingsAbout": {
@@ -1088,11 +1088,11 @@
     "description": "SettingsControlViewModel.SetupLoc"
   },
   "UpdateCheckMsg": {
-    "message": "Verificando atualizações...",
+    "message": "Verificando atualiza??es...",
     "description": "UpdateLoadingDialogViewModel.SetupLoc"
   },
   "AutoLoginHint": {
-    "message": "Segure a tecla shift para alterar as configurações!",
+    "message": "Segure a tecla shift para alterar as configura??es!",
     "description": "UpdateLoadingDialogViewModel.SetupLoc"
   },
   "ResetUidCacheHint": {
@@ -1100,31 +1100,31 @@
     "description": "UpdateLoadingDialogViewModel.SetupLoc"
   },
   "AdminCheck": {
-    "message": "O XIVLauncher e/ou o jogo está definido para serem executados como administrador.\nIsso pode causar vários problemas, includino erros de extensões e aplicativos com teclas de atalho com falha de responsividade.\n\nVocê deseja corrigir este problema automaticamente?",
+    "message": "O XIVLauncher e/ou o jogo est�� definido para serem executados como administrador.\nIsso pode causar v��rios problemas, includino erros de extens?es e aplicativos com teclas de atalho com falha de responsividade.\n\nVoc�� deseja corrigir este problema automaticamente?",
     "description": "ProblemCheck.RunCheck"
   },
   "AdminCheckNag": {
-    "message": "O XIVLauncher está sendo executado como administrador.\nIsso pode causar vários problemas, incluindo extensões falhando ao iniciar e aplicativos com teclas de atalho falhando em responder.\n\nPor favor, tenha cuidado e evite a execução do XIVLauncher como administrador.",
+    "message": "O XIVLauncher est�� sendo executado como administrador.\nIsso pode causar v��rios problemas, incluindo extens?es falhando ao iniciar e aplicativos com teclas de atalho falhando em responder.\n\nPor favor, tenha cuidado e evite a execu??o do XIVLauncher como administrador.",
     "description": "ProblemCheck.RunCheck"
   },
   "MacTypeNag": {
-    "message": "MacType detectado neste PC.\nIsso causará problemas com o jogo; tanto no launcher oficial quanto no XIVLauncher.\n\nPor favor, exclua XIVLauncher, ffxivboot, ffxivlauncher, ffxivupdater e ffxiv_dx11 do MacType.",
+    "message": "MacType detectado neste PC.\nIsso causar�� problemas com o jogo; tanto no launcher oficial quanto no XIVLauncher.\n\nPor favor, exclua XIVLauncher, ffxivboot, ffxivlauncher, ffxivupdater e ffxiv_dx11 do MacType.",
     "description": "ProblemCheck.RunCheck"
   },
   "MyGamesWriteAccessNag": {
-    "message": "Você não tem permissão para escrever na pasta My Games.\nIsso irá impedir que capturas de tela e alguns dados do personagem sejam salvos.\n\nIsso pode ser causado pelo seu antivírus ou erros de permissão. Por favor verifique as permissões da pasta \"My Games\".",
+    "message": "Voc�� n?o tem permiss?o para escrever na pasta My Games.\nIsso ir�� impedir que capturas de tela e alguns dados do personagem sejam salvos.\n\nIsso pode ser causado pelo seu antiv��rus ou erros de permiss?o. Por favor verifique as permiss?es da pasta \"My Games\".",
     "description": "ProblemCheck.RunCheck"
   },
   "GShadeSymlinks": {
-    "message": "As ligações simbólicas do GShade estão corrompidas.\n\nO jogo não pôde iniciar. Você deseja que o XIVLauncher resolva isso? O GShade precisará ser reinstalado.",
+    "message": "As liga??es simb��licas do GShade est?o corrompidas.\n\nO jogo n?o p?de iniciar. Voc�� deseja que o XIVLauncher resolva isso? O GShade precisar�� ser reinstalado.",
     "description": "ProblemCheck.RunCheck"
   },
   "GShadeError": {
-    "message": "Foi detectada uma instalação corrompida do GShade.\n\nO jogo não pode ser iniciado. Você quer que o XIVLauncher corrija isso? Você precisará reinstalar o GShade.",
+    "message": "Foi detectada uma instala??o corrompida do GShade.\n\nO jogo n?o pode ser iniciado. Voc�� quer que o XIVLauncher corrija isso? Voc�� precisar�� reinstalar o GShade.",
     "description": "ProblemCheck.RunCheck"
   },
   "GShadeWrongMode": {
-    "message": "Suas configurações atuais do GShade não estão otimizadas para uso em conjunto com o XIVLauncher. Você deseja que o XIVLauncher resolva isso para você?\n\nIsto não irá alterar suas predefinições ou configurações, mas melhorar a compatibilidade com as funcionalidades do XIVLauncher.",
+    "message": "Suas configura??es atuais do GShade n?o est?o otimizadas para uso em conjunto com o XIVLauncher. Voc�� deseja que o XIVLauncher resolva isso para voc��?\n\nIsto n?o ir�� alterar suas predefini??es ou configura??es, mas melhorar a compatibilidade com as funcionalidades do XIVLauncher.",
     "description": "ProblemCheck.RunCheck"
   }
 }

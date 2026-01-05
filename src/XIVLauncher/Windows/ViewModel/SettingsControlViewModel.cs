@@ -1,4 +1,4 @@
-using CheapLoc;
+﻿using CheapLoc;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;

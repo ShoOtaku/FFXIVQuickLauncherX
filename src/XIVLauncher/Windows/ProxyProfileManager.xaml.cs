@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -140,21 +140,21 @@ namespace XIVLauncher.Windows
 
                 if (response.IsSuccessStatusCode)
                 {
-                    ShowTestResult($"✓ 配置 \"{profile.Name}\" 连接成功! 响应时间: {stopwatch.ElapsedMilliseconds}ms", true);
+                    ShowTestResult($"配置 \"{profile.Name}\" 连接成功! 响应时间: {stopwatch.ElapsedMilliseconds}ms", true);
                     Log.Information($"[代理测试] 配置 {profile.Name} 测试成功,耗时 {stopwatch.ElapsedMilliseconds}ms");
                 }
                 else
                 {
-                    ShowTestResult($"✗ 配置 \"{profile.Name}\" 连接失败: HTTP {(int)response.StatusCode}", false);
+                    ShowTestResult($"配置 \"{profile.Name}\" 连接失败: HTTP {(int)response.StatusCode}", false);
                 }
             }
             catch (System.Threading.Tasks.TaskCanceledException)
             {
-                ShowTestResult($"✗ 配置 \"{profile.Name}\" 连接超时", false);
+                ShowTestResult($"配置 \"{profile.Name}\" 连接超时", false);
             }
             catch (Exception ex)
             {
-                ShowTestResult($"✗ 配置 \"{profile.Name}\" 连接失败: {ex.Message}", false);
+                ShowTestResult($"配置 \"{profile.Name}\" 连接失败: {ex.Message}", false);
             }
         }
 
@@ -176,7 +176,7 @@ namespace XIVLauncher.Windows
         {
             if (isModified)
             {
-                var result = MessageBox.Show("有未保存的修改,是否保存?", "提示",
+                var result = MessageBox.Show("有未保存的修改，是否保存?", "提示",
                     MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -199,7 +199,7 @@ namespace XIVLauncher.Windows
         {
             if (isModified)
             {
-                var result = MessageBox.Show("有未保存的修改,是否保存?", "提示",
+                var result = MessageBox.Show("有未保存的修改，是否保存?", "提示",
                     MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {

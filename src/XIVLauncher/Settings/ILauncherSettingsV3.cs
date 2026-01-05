@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using XIVLauncher.Accounts.Cred;
 using XIVLauncher.Common;
@@ -75,7 +75,7 @@ namespace XIVLauncher.Settings
         string ProxyPassword { get; set; }
 
         /// <summary>
-        /// 仅扫码登录模式 - 跳过服务器检查,只访问扫码登录相关服务器
+        /// 仅扫码登录模式 - 跳过服务器检查，只访问扫码登录相关服务器
         /// </summary>
         bool? OnlyQRCodeLogin { get; set; }
 
@@ -98,6 +98,11 @@ namespace XIVLauncher.Settings
         /// 当前选中的机器码配置名称
         /// </summary>
         string SelectedDeviceIdProfile { get; set; }
+
+        /// <summary>
+        /// 账号级机器码/代理覆盖配置(JSON序列化的AccountNetworkOverride列表)
+        /// </summary>
+        string AccountNetworkOverrides { get; set; }
 
         #endregion
     }

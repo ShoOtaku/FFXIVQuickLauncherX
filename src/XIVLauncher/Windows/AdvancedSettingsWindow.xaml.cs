@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,6 +10,7 @@ using Serilog;
 using Serilog.Core;
 using Serilog.Events;
 using System.Windows;
+using XIVLauncher.Accounts;
 using XIVLauncher.Common;
 using XIVLauncher.Common.Game;
 using XIVLauncher.Common.Support;
@@ -42,10 +43,10 @@ namespace XIVLauncher.Windows
             EnableSkipUpdate.IsChecked = App.Settings.EnableSkipUpdate ?? false;
             EnableVerboseLog.IsChecked = LogInit.LevelSwitch.MinimumLevel == LogEventLevel.Verbose;
 
-            // 加载当前机器码信息
+            // 加载当前机器码信??
             RefreshCurrentDeviceId();
 
-            // 加载机器码伪装设置
+            // 加载机器码伪装设??
             EnableDeviceIdSpoofCheckbox.IsChecked = App.Settings.EnableDeviceIdSpoof ?? false;
             SpoofedMacAddressTextBox.Text = App.Settings.SpoofedMacAddress ?? string.Empty;
             SpoofedCpuIdTextBox.Text = App.Settings.SpoofedCpuId ?? string.Empty;
@@ -55,7 +56,7 @@ namespace XIVLauncher.Windows
             // 加载代理配置列表
             LoadProxyProfiles();
 
-            // 加载机器码配置列表
+            // 加载机器码配置列??
             LoadDeviceIdProfiles();
 
             // 加载代理设置
@@ -67,7 +68,7 @@ namespace XIVLauncher.Windows
             ProxyPasswordBox.Password = App.Settings.ProxyPassword ?? string.Empty;
             ProxySettingsPanel.IsEnabled = EnableProxyCheckbox.IsChecked == true;
 
-            // 加载仅扫码登录设置
+            // 加载仅扫码登录设??
             OnlyQRCodeLoginCheckbox.IsChecked = App.Settings.OnlyQRCodeLogin ?? false;
         }
 
@@ -85,14 +86,14 @@ namespace XIVLauncher.Windows
 
                 CurrentDeviceIdTextBox.Text =
                     $"{statusText}\n" +
-                    $"完整机器码: {currentDeviceId}\n\n" +
+                    $"完整机器码 {currentDeviceId}\n\n" +
                     $"MAC 地址 MD5: {currentMac}\n" +
                     $"CPU ID MD5: {currentCpu}\n" +
-                    $"磁盘序列号 MD5: {currentDisk}";
+                    $"磁盘序列??MD5: {currentDisk}";
             }
             catch (Exception ex)
             {
-                CurrentDeviceIdTextBox.Text = $"获取机器码失败: {ex.Message}";
+                CurrentDeviceIdTextBox.Text = $"获取机器码失?? {ex.Message}";
                 Log.Error(ex, "Failed to get current device ID");
             }
         }
@@ -108,7 +109,7 @@ namespace XIVLauncher.Windows
             App.Settings.EnableVerboseLog              = EnableVerboseLog.IsChecked                      == true;
             LogInit.LevelSwitch.MinimumLevel           = this.EnableVerboseLog.IsChecked == true ? LogEventLevel.Verbose : LogInit.GetDefaultLevel();
 
-            // 保存机器码伪装设置
+            // 保存机器码伪装设??
             App.Settings.EnableDeviceIdSpoof = EnableDeviceIdSpoofCheckbox.IsChecked == true;
             App.Settings.SpoofedMacAddress = SpoofedMacAddressTextBox.Text;
             App.Settings.SpoofedCpuId = SpoofedCpuIdTextBox.Text;
@@ -131,7 +132,7 @@ namespace XIVLauncher.Windows
             App.Settings.ProxyUsername = ProxyUsernameTextBox.Text;
             App.Settings.ProxyPassword = ProxyPasswordBox.Password;
 
-            // 应用代理设置到 ProxySettings
+            // 应用代理设置??ProxySettings
             ProxySettings.EnableProxy = App.Settings.EnableProxy.GetValueOrDefault(false);
             ProxySettings.ProxyType = App.Settings.ProxyType;
             ProxySettings.ProxyServer = App.Settings.ProxyServer;
@@ -150,6 +151,7 @@ namespace XIVLauncher.Windows
             {
                 Log.Information("[仅扫码登录] 已启用 - 将跳过服务器更新检查");
             }
+            AccountNetworkOverrideStore.ApplyToAccount(App.AccountManager?.CurrentAccount);
         }
 
         private void CloseButton_OnClick(object sender, RoutedEventArgs e)
@@ -171,7 +173,7 @@ namespace XIVLauncher.Windows
         private void EnableDeviceIdSpoofCheckbox_OnChecked(object sender, RoutedEventArgs e)
         {
             DeviceIdSpoofPanel.IsEnabled = true;
-            // 临时应用伪装设置以显示效果
+            // 临时应用伪装设置以显示效??
             SdoUtils.EnableSpoof = true;
             SdoUtils.SpoofedMacAddress = SpoofedMacAddressTextBox.Text;
             SdoUtils.SpoofedCpuId = SpoofedCpuIdTextBox.Text;
@@ -273,7 +275,7 @@ namespace XIVLauncher.Windows
                     }
                 }
 
-                // 设置当前选中项
+                // 设置当前选中??
                 var selectedName = App.Settings.SelectedProxyProfile;
                 if (!string.IsNullOrEmpty(selectedName))
                 {
@@ -317,7 +319,7 @@ namespace XIVLauncher.Windows
                 ProxyPasswordBox.Password = profile.Password;
 
                 App.Settings.SelectedProxyProfile = profile.Name;
-                Log.Information($"[代理配置] 已应用配置: {profile.Name}");
+                Log.Information($"[代理配置] 已应用配?? {profile.Name}");
             }
         }
 
@@ -332,10 +334,10 @@ namespace XIVLauncher.Windows
 
         private async void TestProxyButton_OnClick(object sender, RoutedEventArgs e)
         {
-            // 隐藏之前的测试结果
+            // 隐藏之前的测试结??
             ProxyTestResultTextBlock.Visibility = Visibility.Collapsed;
             TestProxyButton.IsEnabled = false;
-            TestProxyButton.Content = "测试中...";
+            TestProxyButton.Content = "测试??..";
 
             try
             {
@@ -371,30 +373,30 @@ namespace XIVLauncher.Windows
                 using var httpClient = new System.Net.Http.HttpClient(handler);
                 httpClient.Timeout = TimeSpan.FromSeconds(10);
 
-                // 测试访问 SDO 登录服务器
+                // 测试访问 SDO 登录服务??
                 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
                 var response = await httpClient.GetAsync("https://cas.sdo.com/authen/");
                 stopwatch.Stop();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    ShowTestResult($"✓ 代理连接成功! 响应时间: {stopwatch.ElapsedMilliseconds}ms", true);
-                    Log.Information($"[代理测试] 成功连接到 SDO 服务器,耗时 {stopwatch.ElapsedMilliseconds}ms");
+                    ShowTestResult($"??代理连接成功! 响应时间: {stopwatch.ElapsedMilliseconds}ms", true);
+                    Log.Information($"[代理测试] 成功连接??SDO 服务??耗时 {stopwatch.ElapsedMilliseconds}ms");
                 }
                 else
                 {
-                    ShowTestResult($"✗ 连接失败: HTTP {(int)response.StatusCode}", false);
+                    ShowTestResult($"连接失败: HTTP {(int)response.StatusCode}", false);
                     Log.Warning($"[代理测试] 连接失败: {response.StatusCode}");
                 }
             }
             catch (System.Threading.Tasks.TaskCanceledException)
             {
-                ShowTestResult("✗ 连接超时,请检查代理设置", false);
+                ShowTestResult("连接超时，请检查代理设置。", false);
                 Log.Warning("[代理测试] 连接超时");
             }
             catch (Exception ex)
             {
-                ShowTestResult($"✗ 连接失败: {ex.Message}", false);
+                ShowTestResult($"连接失败: {ex.Message}", false);
                 Log.Error(ex, "[代理测试] 测试代理连接时出错");
             }
             finally
@@ -428,7 +430,7 @@ namespace XIVLauncher.Windows
             return (string)method?.Invoke(null, null);
         }
 
-        // 机器码配置管理
+        // 机器码配置管??
         private void LoadDeviceIdProfiles()
         {
             DeviceIdProfileComboBox.Items.Clear();
@@ -445,7 +447,7 @@ namespace XIVLauncher.Windows
                         DeviceIdProfileComboBox.Items.Add(profile);
                     }
 
-                    // 恢复之前选中的配置
+                    // 恢复之前选中的配??
                     if (!string.IsNullOrEmpty(App.Settings.SelectedDeviceIdProfile))
                     {
                         var selected = profiles.FirstOrDefault(p => p.Name == App.Settings.SelectedDeviceIdProfile);
@@ -485,7 +487,7 @@ namespace XIVLauncher.Windows
             }
             else if (DeviceIdProfileComboBox.SelectedIndex == 0)
             {
-                // 选择了"手动配置"
+                // 选择??手动配置"
                 App.Settings.SelectedDeviceIdProfile = null;
             }
         }
@@ -500,3 +502,7 @@ namespace XIVLauncher.Windows
         }
     }
 }
+
+
+
+
